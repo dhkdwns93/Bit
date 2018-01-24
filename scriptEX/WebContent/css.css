@@ -1,0 +1,17 @@
+h1{
+	color:blue;
+}
+h2{
+	color:green;
+	}
+#songwriter{
+	text-align:right;
+}
+#lyricist{
+	color:red;
+	text-align:right;
+}
+p.lyric{
+	margin-left:10px;
+	}
+

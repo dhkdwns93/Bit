@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>if-else를 이용한 학점 매기기</h1>
+<hr>
+<script>
+	var s = prompt("왕준님의 점수를 입력하세요", "");
+	var grade;
+	var s = parseInt(s);
+	if(s==null || s>100){
+		alert("경고! 점수를 다시 입력해주세요~");
+	}	
+	else if(s>=90){
+		grade = "A";
+	}else if(s>=80){
+		grade = "B";
+	}else if(s>=70){
+		grade = "C";
+	}else if(s>=60){
+		grade = "D";
+	}else{
+		grade = "F";
+	}
+	document.write(s+"는"+grade+"입니다.<br>");
+</script>
+</body>
+</html>

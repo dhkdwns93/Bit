@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+<h2>for문으로 10px~35px 크기 출력</h2>
+<hr>
+<span style="font-size:30px">
+	10px
+</span>
+<br>
+<script>
+	
+	for(var num=10 ; num<=35 ; num+=5){
+		document.write("<span ");
+		document.write("style='font-size:" + num + "px'>");
+		document.write(num + "px");
+		document.write("</span>");
+	}
+	for(var size=10; size<=35; size+=5) { // 5씩 증가
+		document.write("<span ");
+		document.write("style='font-size:" + size + "px'>");
+		document.write(size + "px");
+		document.write("</span>");
+	}
+
+	
+</script>
+</body>
+</html>

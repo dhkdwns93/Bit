@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+	<h2>switch문으로 커피 주문</h2>
+	<hr>
+<script>
+var price = 0;
+	var coffee = prompt("무슨 커피 드릴까요?", "");
+	/* coffee = parseInt(coffee); */
+	
+	switch (coffee) {
+	case "카페모카":
+		price=2000;
+		break;
+	case "아메리카노":
+		price=1000;
+		break;
+	case "카페라떼":
+		price=1500;
+		break;
+	
+	}
+	if(price != 0 ){
+		document.write(coffee+"는"+price+"원입니다.");
+	}
+</script>
+</body>
+</html>
