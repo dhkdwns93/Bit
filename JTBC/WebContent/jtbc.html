@@ -1,0 +1,1406 @@
+<!DOCTYPE html>
+<html>
+<head lang="ko">
+<meta charset="UTF-8">
+<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+<style>
+	html{
+	font-size: 100%;
+    color: #000;
+    background: #fff;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+	}
+
+	html { display: block;}
+	
+	.hide_txt{
+		font-size: 1px;
+	    line-height: 0;
+	    position: absolute;
+	    display: inline-block;
+	    overflow: hidden;
+	    clip: rect(1px 1px 1px 1px);
+	    width: 1px;
+	    height: 1px;
+	}
+	div {
+	    display: block;
+	}
+	h1, h2, h3, h4, h5, h6 {
+	    font-size: 100%;
+	    font-weight: 400;
+	    line-height: 1;
+	}
+	p {
+	    display: block;
+	    -webkit-margin-before: 1em;
+	    -webkit-margin-after: 1em;
+	    -webkit-margin-start: 0px;
+	    -webkit-margin-end: 0px;
+	}
+	article, aside, audio, blockquote, body, canvas, code, dd, details, div, dl, dt, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, input, legend, li, mark, menu, nav, ol, p, pre, section, summary, td, textarea, th, time, ul, video {
+	    margin: 0;
+	    padding: 0;
+	}
+	address, caption, cite, code, dfn, em, strong, th, var {
+	    font-weight: 400;
+	    font-style: normal;
+	}
+	strong, b {
+	    font-weight: bold;
+	}
+	h1 {
+	    display: block;
+	    font-size: 2em;
+	    -webkit-margin-before: 0.67em;
+	    -webkit-margin-after: 0.67em;
+	    -webkit-margin-start: 0px;
+	    -webkit-margin-end: 0px;
+	    font-weight: bold;
+	}
+	h2 {
+	    display: block;
+	    font-size: 1.5em;
+	    -webkit-margin-before: 0.83em;
+	    -webkit-margin-after: 0.83em;
+	    -webkit-margin-start: 0px;
+	    -webkit-margin-end: 0px;
+	    font-weight: bold;
+	}
+	body {
+	    font-size: 14px;
+	    line-height: 20px;
+	    letter-spacing: -0.8px;
+	    color: rgb(93, 96, 100);
+	    background-color: rgb(255, 255, 255);
+	}
+	#wrap {
+	    width: 100%;
+	    min-width: 1300px;
+	}
+	#header {
+	    width: 100%;
+	    height: 110px;
+	}
+	#header .gnb_dimm {
+	    display: block;
+	    width: 100%;
+	    transition: opacity .5s;
+	    opacity: 0;
+	    filter: alpha(opacity=0);
+	}
+	#header h1 a.s03 {
+	    background-position: left -174px;
+	}
+	#header h1 a {
+	    position: absolute;
+	    z-index: 10;
+	    top: 24px;
+	    left: 50%;
+	    display: block;
+	    width: 115px;
+	    height: 57px;
+	    margin: 0 0 0 -58px;
+	    text-indent: -999em;
+	    background-color:white;
+	}
+	#container {
+	    min-width: 1300px;
+	}
+	#content {
+	    width: 1245px;
+	    margin: 0 auto;
+	    padding: 0 0 100px;
+	}
+	#content .side_content_area {
+	    float: left;
+	    width: 278px;
+	    padding: 0 0 30px;
+	    border: 1px solid #eaeaea;
+	    border-top: 0;
+	}
+	#content .lnb_area {
+	    width: 220px;
+	    padding: 40px 30px 70px;
+	}
+	#content .lnb_area .lnb>li {
+	    position: relative;
+	    border-bottom: 1px solid #eaeaea;
+	}
+	#content .lnb_area .lnb>li.on>a, #content .lnb_area .lnb>li>a:active, #content .lnb_area .lnb>li>a:focus, #content .lnb_area .lnb>li>a:hover {
+	    color: #ff3091;
+	}
+	#content .lnb_area .lnb>li.on>.lnb_2depth_area>.lnb_2depth {
+	    border: 0;
+	}
+	#content .lnb_area .lnb>li.on>.lnb_2depth_area>.bu {
+	    background-position: -400px -10px;
+	}
+	#content .lnb_2depth>li:first-child {
+	    margin-top: 0;
+	}
+	#content .lnb_area .lnb>li>a {
+	    font-size: 18px;
+	    font-weight: 700;
+	    position: relative;
+	    z-index: 2;
+	    display: block;
+	    padding: 16px 0 18px;
+	    color: #2a2a2a;
+	}
+	#content .lnb_2depth_area {
+	    position: relative;
+	}
+	#content .lnb_area .lnb>li.on>.lnb_2depth_area>.bu {
+	    background-position: -400px -10px;
+	}
+	#content .lnb_2depth_area .bu {
+	    position: absolute;
+	    top: -30px;
+	    right: 10px;
+	    width: 16px;
+	    height: 8px;
+	    background-color: white;
+	}
+	#content .lnb_2depth {
+	    display: none;
+	    padding: 10px 0 17px;
+	    border-top: 1px solid #eaeaea;
+	}
+	#content .lnb_2depth>li {
+	    margin-top: 2px;
+	}
+	#content .lnb_2depth>li>a {
+	    font-size: 14px;
+	    display: block;
+	    padding-left: 9px;
+	}
+	#content .lnb_2depth>li.on_2depth>a, #content .lnb_2depth>li>a:hover {
+	    color: #ff3091;
+	    background-color: white;
+	}
+	#content .lnb_2depth>li .ico_new {
+	    vertical-align: -2px;
+	}
+	#footer {
+    position: relative;
+    min-width: 1300px;
+    border-top: 1px solid silver;
+	}
+	#footer .f_menu {
+	    position: relative;
+	    width: 1245px;
+	    margin: 0 auto;
+	    padding: 0;
+	}
+	#footer .f_menu ul:first-child {
+    margin-bottom: 22px;
+}	
+	#footer .f_menu ul {
+    margin-left: 149px;
+}	
+#footer .f_menu li:first-child {
+    margin: 0;
+    padding: 0;
+    background: 0 0;
+}
+	#footer .f_menu li a {
+    font-weight: 700;
+    display: block;
+    color: #5d6064;
+}
+	
+	#footer .f_content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 19px;
+    padding: 20px 0 21px;
+    transition: all .2s;
+}
+#footer .f_menu li {
+    float: left;
+    margin-left: 12px;
+    padding-left: 14px;
+    background-color: white;
+}
+#footer .f_content .f_second {
+    display: none;
+}
+#footer .f_more {
+    position: absolute;
+    top: 0;
+    right: 27px;
+    display: block;
+    width: 67px;
+    height: 13px;
+    text-indent: -999em;
+    background-color: white;
+}
+#footer .f_address ul {
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+#footer .f_address {
+    position: relative;
+    width: 1096px;
+    margin: 0 auto;
+    padding: 0 0 0 149px;
+    color: #797d84;
+}
+#footer .f_address li {
+    font-size: 13px;
+    line-height: 18px;
+    float: left;
+    margin-right: 11px;
+    padding-right: 11px;
+     background-color: white;
+}
+#footer .f_address li.last {
+    margin: 0;
+    background: 0 0;
+}
+#footer .f_address li a {
+    font-weight: 700;
+    color: #5d6064;
+}
+#footer .f_address .copyright {
+    margin-top: 8px;
+}
+#footer .f_address .qr_code {
+    position: absolute;
+    top: 5px;
+    right: 0;
+}
+#footer .f_address_wrap {
+    margin-top: 60px;
+    padding: 33px 0 40px;
+    border-top: 1px solid #e4e4e4;
+}
+#footer .f_address .f_logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+	.ico_new {
+	    display: inline-block;
+	    width: 15px;
+	    height: 15px;
+	    text-indent: -999em;
+	    background-color: white;
+	}
+	.skipnav {
+	    line-height: 1;
+	    position: absolute;
+	    z-index: 9999;
+	    top: 0;
+	    left: 0;
+	    width: 100%;
+	    height: 0;
+	}
+	ol, ul {
+	    list-style: none;
+	}
+	ul ul, ol ul {
+	    list-style-type: none;
+	}
+	
+	li {
+	    display: list-item;
+	    text-align: -webkit-match-parent;
+	}
+	i, cite, em, var, address, dfn {
+    font-style: italic;
+}
+	.skipnav a {
+	    font-size: 0;
+	    line-height: 1;
+	    display: block;
+	    overflow: hidden;
+	    width: 1px;
+	    height: 1px;
+	    margin: 0 -1px -1px 0;
+	    padding: 0;
+	}
+	a:-webkit-any-link {
+	    color: -webkit-link;
+	    cursor: pointer;
+	    text-decoration: underline;
+	}
+	a, a:active, a:focus, a:hover, a:link, a:visited {
+	    font-size: 100%;
+	    text-decoration: none;
+	    color: #5d6064;
+	}
+	.util {
+	    position: absolute;
+	    z-index: 10;
+	    top: 0;
+	    right: 0;
+	}
+	.util li {
+	    float: left;
+	    margin-left: -1px;
+	}
+	.util li:first-child {
+	    margin-left: 0;
+	}
+	.util li a {
+	    font-size: 12px;
+	    font-weight: 700;
+	    line-height: 24px;
+	    display: block;
+	    width: 94px;
+	    height: 26px;
+	    text-align: center;
+	    color: #8d8d8d;
+	    border: 1px solid #e8e8e8;
+	    border-top: 0;
+	}
+	.util li.jmnet a .ico_jmnet {
+	    display: inline-block;
+	    width: 10px;
+	    height: 5px;
+	    margin-left: 6px;
+	    vertical-align: 1px;
+	     background-color: white;
+	}
+	.clfix:after, .clfix:before {
+	    line-height: 0;
+	    display: table;
+	    content: '';
+	}
+	.clfix:after {
+	    clear: both;
+	}
+	.clfix:after, .clfix:before {
+	    line-height: 0;
+	    display: table;
+	    content: '';
+	}
+	.jmnet_zone {
+	    position: absolute;
+	    z-index: 25;
+	    top: 0;
+	    left: 0;
+	    display: none;
+	    width: 100%;
+	    height: 295px;
+	     background-color: white;
+	}
+	.jmnet_zone .bx_zone {
+	    padding: 40px 0 0;
+	}
+	.bx_zone {
+	    position: relative;
+	    width: 1245px;
+	    margin: 0 auto;
+	}
+	.jmnet_zone ul {
+	    width: 1245px;
+	}
+	.jmnet_zone li {
+	    float: left;
+	    width: 170px;
+	    min-height: 235px;
+	    padding: 0 0 0 39px;
+	    background-color: white;
+	}
+	dl {
+	    display: block;
+	    -webkit-margin-before: 1em;
+	    -webkit-margin-after: 1em;
+	    -webkit-margin-start: 0px;
+	    -webkit-margin-end: 0px;
+	}
+	dt {
+	    display: block;
+	}
+	dd {
+	    display: block;
+	    -webkit-margin-start: 40px;
+	}
+	.jmnet_zone dt {
+	    height: 33px;
+	    margin-bottom: 23px;
+	    padding: 18px 0 0;
+	}
+	.jmnet_zone dt span {
+	    display: block;
+	    height: 18px;
+	    text-indent: -999em;
+	    background-image: url(/images/common/tit_comm.png);
+	    background-repeat: no-repeat;
+	}
+	.jmnet_zone .broadcast dt span {
+	    width: 30px;
+	    background-position: -327px -102px;
+	}
+	.jmnet_zone .newspaper dt span {
+	    width: 31px;
+	    background-position: -286px -102px;
+	}
+	
+	.jmnet_zone dd a {
+	    font-size: 12px;
+	    font-weight: 700;
+	    color: #5d6064;
+	}
+	.jmnet_zone dd {
+	    margin-bottom: 9px;
+	}
+	.jmnet_zone .magazine {
+	    overflow: hidden;
+	    width: 383px;
+	}
+	.jmnet_zone .magazine dl.area01 {
+	    width: 151px;
+	}
+	.jmnet_zone .magazine dl {
+	    float: left;
+	}
+	.jmnet_zone .magazine dt span {
+	    width: 45px;
+	    background-position: -367px -102px;
+	}
+	.jmnet_zone .magazine dl.area03 {
+	    width: 120px;
+	}
+	.jmnet_zone li.internet {
+	    width: 160px;
+	}
+	.jmnet_zone .internet dt span {
+	    width: 45px;
+	    background-position: -422px -102px;
+	}
+	.jmnet_zone li.pro {
+	    width: 160px;
+	    border: 0;
+	    background: 0 0;
+	}
+	.jmnet_zone .pro dt span {
+	    width: 82px;
+	    background-position: -477px -102px;
+	}
+	.jmnet_zone .jmnet_close {
+	    position: absolute;
+	    top: 0;
+	    right: 0;
+	    display: block;
+	    width: 92px;
+	    height: 31px;
+	    text-indent: -999em;
+	     background-color: white;
+	}
+	.gnb_wrap {
+	    width: 100%;
+	    height:100px;
+	    background-color:white;
+	}
+	.gnb {
+	    position: relative; 
+	    z-index: 5;
+	    width: 1245px;
+	    height: 58px;
+	    margin: 0 auto;
+	    padding: 52px 0 0; 
+	}
+	.gnb .gnb_left {
+	    float: left;
+	}
+	
+	.clfix {
+	
+	}
+	.gnb li:first-child {
+	    margin-left: 0;
+	}
+	.gnb li {
+	    float: left;
+	    margin: 0 20px;
+	    
+	}
+	.gnb li a {
+		background: #fff;
+		z-index: 100;
+	    display: block;
+	    height: 19px;
+	    text-indent: -999em;
+	    color: #000;
+	}
+	
+	.gnb li.m01 a {
+	    width: 72px;
+	    background-position: 0 -100px;
+	}
+	.gnb li.m02 a {
+	    width: 36px;
+	    background-position: -112px -100px;
+	}
+	.gnb li.m03 a {
+	    width: 44px;
+	    background-position: -188px -100px;
+	}
+	.gnb .gnb_right {
+	    float: right;
+	}
+	.gnb .gnb_right li {
+	    margin: 0 13px;
+	}
+	.gnb li.m04 a {
+	    width: 49px;
+	    background-position: 0 -188px;
+	}
+	.gnb li.m05 a {
+	    width: 49px;
+	    background-position: -75px -188px;
+	}
+	.gnb li.m06 a {
+	    width: 49px;
+	    background-position: -150px -188px;
+	}
+	.gnb li.m07 a {
+	    width: 48px;
+	    background-position: -225px -188px;
+	}
+	.gnb li.gnb_search {
+	    margin: -4px 3px 0 12px;
+	}
+	.gnb li.gnb_search a {
+	    width: 28px;
+	    height: 28px;
+	    background-position: -283px -185px;
+	}
+	.gnb li.gnb_search .search_zone {
+	    position: absolute;
+	    z-index: 5;
+	    top: 0;
+	    left: 0;
+	    display: none;
+	    width: 100%;
+	    height: 110px;
+	    transition: opacity .5s;
+	    opacity: 0;
+	    filter: alpha(opacity=0);
+	}
+	.gnb li.gnb_search .search_zone>span {
+	    position: absolute;
+	    z-index: 10;
+	    top: 43px;
+	    right: 0;
+	    display: block;
+	    width: 343px;
+	    height: 33px;
+	    padding: 7px 0;
+	    border: 1px solid #2a2a2a;
+	    background: #ffffff;
+	}
+	form {
+	    display: block;
+	    margin-top: 0em;
+	}
+	
+	.gnb li.gnb_search .search_zone .inptxt {
+   
+    font-size: 16px;
+    width: 260px;
+    height: 30px;
+    margin-left: 10px;
+    padding: 0 20px 0 10px;
+    color: #2a2a2a;
+    border: 0;
+}
+	.gnb li.gnb_search .search_zone .btn_inp_search {
+	    position: absolute;
+	    top: 0;
+	    right: 0;
+	    display: block;
+	    width: 18px;
+	    height: 18px;
+	    padding: 15px;
+	    text-indent: -999em;
+	    background-color: white ;
+	}
+	.gnb li.gnb_search .search_zone .del {
+	    position: absolute;
+	    top: 0;
+	    right: -50px;
+	    display: block;
+	    width: 16px;
+	    height: 15px;
+	    padding: 17px;
+	    text-indent: -999em;
+	    background-color: white ;
+	}
+	.pro_sub_top_area {
+	    position: relative;
+	    overflow: hidden;
+	    min-width: 1245px;
+	    text-align: center;
+	}
+	element.style {
+	    background-color: #23769F;
+	}
+	img {
+	    vertical-align: middle;
+	    border: 0;
+	}
+	.pro_notice.no_bottom {
+	    margin-bottom: 0;
+	}
+	.pro_notice {
+	    width: 100%;
+	    height: 37px;
+	    margin: 0 auto 58px;
+	    padding: 17px 0 0;
+	    background: #e5e5e5;
+	}
+	.pro_notice .bx_notice {
+	    width: 1215px;
+	    margin: 0 auto;
+	    padding: 0 0 0 30px;
+	}
+	.pro_notice .bx_notice strong {
+	    float: left;
+	    overflow: hidden;
+	    height: 20px;
+	    color: #2a2a2a;
+	}
+	.pro_notice .bx_notice strong a {
+	    color: #2a2a2a;
+	}
+	.pro_notice .bx_notice span {
+	    float: right;
+	    margin-right: 0;
+	}
+	font[Attributes Style] {
+	    color: rgb(255, 0, 127);
+	}
+	font[Attributes Style] {
+	    color: rgb(0, 0, 0);
+	}
+	font[Attributes Style] {
+	    color: rgb(152, 0, 0);
+	}
+	font[Attributes Style] {
+	    color: rgb(3, 0, 102);
+	}
+	.pro_notice .bx_notice span strong {
+	    margin-left: 10px;
+	    color: inherit;
+	}
+	u, ins {
+	    text-decoration: underline;
+	}
+	.sub_banner01 {
+    text-align: center;
+	}
+	.sub_banner01 img{
+		display:block;
+		padding: 0px 58px;
+		width: 150px;
+		height: 150px;
+	}
+.sub_comm_content {
+    position: relative;
+    width: 220px;
+    margin: 13px auto 0;
+    border-bottom: 1px solid #eaeaea;
+}
+.sub_comm_content.no_line {
+    border-bottom: 0;
+}
+.sub_comm_content.last_child {
+    border-bottom: 0;
+}
+#content .content_area {
+    float: right;
+    width: 904px;
+    padding: 58px 0 100px;
+}
+.content_tit_area.first_child {
+    margin-top: -2px;
+}
+.content_tit_area {
+    width: 100%;
+    margin-top: 78px;
+    padding: 0 0 28px;
+    border-bottom: 1px solid #eaeaea;
+}
+.content_tit {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 32px;
+    float: left;
+    letter-spacing: -3px;
+    color: #2a2a2a;
+}
+.location_map {
+    position: relative;
+    top: 10px;
+    float: right;
+}
+.location_map>li.first_child {
+    margin-left: 0;
+    padding: 0;
+    background: 0 0;
+}
+.location_map>li {
+    float: left;
+    margin-left: 10px;
+    padding: 0 0 0 14px;
+    background: url(/images/common/bu_location.png) left 4px no-repeat;
+}
+.location_map>li>a.home {
+    position: relative;
+    top: 1px;
+    width: 15px;
+    height: 14px;
+    background: url(/images/common/ico_change.png) -460px -60px no-repeat;
+}
+.location_map>li>a, .location_map>li>span {
+    font-size: 13px;
+    line-height: 16px;
+    display: block;
+}
+.actor_list {
+    width: 100%;
+}
+.actor_list>li {
+    padding: 40px 0;
+    border-bottom: 1px solid #eaeaea;
+}
+.actor_info dl {
+    position: relative;
+    min-height: 113px;
+    padding: 0 0 0 239px;
+}
+.actor_info dt {
+    float: left;
+    width: 145px;
+    margin-right: 10px;
+}
+.actor_info dt .vn2 {
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 30px;
+    display: block;
+    word-wrap: break-word;
+    word-break: keep-all;
+    color: #2a2a2a;
+}
+.actor_info dt .rn2 {
+    font-size: 16px;
+    display: block;
+    margin: 5px 0 0;
+    word-wrap: break-word;
+    word-break: keep-all;
+}
+.actor_info dd.pic2 {
+    width: 200px;
+    margin: 0 0 0 -394px;
+    border: 1px solid #eaeaea;
+}
+.actor_info dd.pic2 img {
+    width: 200px;
+}
+.actor_info dd {
+    font-size: inherit;
+    line-height: normal;
+    float: left;
+    width: 500px;
+    letter-spacing: normal;
+}
+
+.s04 img {
+	display: block;
+    padding: 0px 500px;
+    width: 500px;
+    height: 160px;
+}
+
+</style>
+
+<title>Insert title here</title>
+</head>
+<body>
+	<h1 class="hide_txt">JTBC</h1>
+	<div id="wrap" class="sub01">
+		<h2 class="hide_txt">주요 메뉴 영역</h2>
+		<div id="header">
+			<ul class="skipnav">
+				<li><a href="#">본문 바로가기</a></li>
+			</ul>
+			<ul class="util clfix">
+				<li class="jmnet">
+				<a href>중앙그룹<span class="ico_jmnet"></span></a></li>
+				<li><a href="#">회원가입</a></li>
+				<li><a href="#" id="btn-login-global">로그인</a></li>
+			</ul>
+			<div class="gnb_dimm"></div>
+			<div class="header_content">
+				<h1 class="s04" style="align:center">
+					 <img src="jtbc4.jpg" alt="JTBC" >
+				</h1>
+				<div class="jmnet_zone">
+					<div class="box_zone">
+						<ul class="clfix">
+							<li>
+								<dl class="newspaper">
+									<dt>
+										<span>신문</span>
+									</dt>
+									<dd>
+										<a href="#" title="새창열림" target="_blank">중앙일보</a>
+									</dd>
+									<dd>
+										<a href="#" title="새창열림" target="_blank">중앙SUNDAY</a>
+									</dd>
+									<dd>
+										<a href="#" title="새창열림" target="_blank">일간스포츠</a>
+									</dd>
+									<dd>
+										<a href="#" title="새창열림" target="_blank">Korea Joongang Daily</a>
+									</dd>
+									<dd>
+										<a href="#" title="새창열림" target="_blank">The Korea Daily</a>
+									</dd>
+								</dl>
+							</li>
+							<li class="broadcast">
+								<dl>
+									<dt>
+										<span>방송</span>
+									</dt>
+									<dd>
+										<a href="#" title="새창열림" target="_blank">JTBC</a>
+									</dd>
+									<dd>
+										<a href="#" title="새창열림" target="_blank">JTBC2</a>
+									</dd>
+									<dd>
+										<a href="#" title="새창열림" target="_blank">JTBC GOLF</a>
+									</dd>
+									<dd>
+										<a href="#" title="새창열림" target="_blank">JTBC3 FOX Sports</a>
+									</dd>
+									<dd>
+										<a href="#" title="새창열림" target="_blank">JTBC worldwide</a>
+									</dd>
+								</dl>
+							</li>
+							<li class="magazine">
+								<dl class="area01">
+									<dt>
+										<span>매거진</span>
+									</dt>
+									<dd>
+										<a href="#" title="새창열림" target="_blank">이코노미스트</a>
+									</dd>
+									<dd>
+										<a href="#" title="새창열림" target="_blank">뉴스위크 한국판</a>
+									</dd>
+									<dd>
+										<a href="#" title="새창열림" target="_blank">월간중앙</a>
+									</dd>
+									<dd>
+										<a href="#" title="새창열림" target="_blank">포브스코리아</a>
+									</dd>
+								</dl>
+								<dl class="area02">
+									<dt>
+										<span class="hide_txt">매거진</span>
+									</dt>
+									<dd>
+										<a href="#" title="새창" target="_blank">쎄씨</a>
+									</dd>
+									<dd>
+										<a href="#" title="새창" target="_blank">여성중앙</a>
+									</dd>
+									<dd>
+										<a href="#" title="새창" target="_blank">헤렌</a>
+									</dd>
+									<dd>
+										<a href="#" title="새창" target="_blank">인스타일</a>
+									</dd>
+									<dd>
+										<a href="#" title="새창" target="_blank">Jlook</a>
+									</dd>
+								</dl>
+								<dl class="area03">
+									<dt>
+										<span class="hide_txt">매거진</span>
+									</dt>
+									<dd>
+										<a href="#" title="새창" target="_blank">코스모폴리탄</a>
+									</dd>
+									<dd>
+										<a href="#" title="새창" target="_blank">엘르</a>
+									</dd>
+									<dd>
+										<a href="#" title="새창" target="_blank">에스콰이어</a>
+									</dd>
+									<dd>
+										<a href="#" title="새창" target="_blank">하퍼스바자</a>
+									</dd>
+								</dl>
+							</li>
+							<li class="internet">
+								<dl>
+									<dt>
+										<span>인터넷</span>
+									</dt>
+									<dd>
+										<a href="#" title="새창열림" target="_blank">Joins</a>
+									</dd>
+									<dd>
+										<a href="#" title="새창열림" target="_blank">Joins Spider</a>
+									</dd>
+									<dd>
+										<a href="#" title="새창열림" target="_blank">Our History</a>
+									</dd>
+									<dd>
+										<a href="#" title="새창열림" target="_blank">TONG</a>
+									</dd>
+									<dd>
+										<a href="#" title="새창열림" target="_blank">소년중앙</a>
+									</dd>
+								</dl>
+							</li>
+							<li class="pro">
+								<dl>
+									<dt>
+										<span>전문 컨텐츠</span>
+									</dt>
+									<dd>
+										<a href="#" title="새창열림" target="_blank">문예중앙</a>
+									</dd>
+									<dd>
+										<a href="#" title="새창열림" target="_blank">중국연구소</a>
+									</dd>
+									<dd>
+										<a href="#" title="새창열림" target="_blank">우리말</a>
+									</dd>
+									<dd>
+										<a href="#" title="새창열림" target="_blank">조인스랜드</a>
+									</dd>
+									<dd>
+										<a href="#" title="새창열림" target="_blank">헬스미디어</a>
+									</dd>
+								</dl>
+							</li>
+						</ul>
+						<a href="#" onclick="return false;" class="jment_close">JMnet 닫기</a>
+					</div>
+				</div>
+				<div class="gnb_wrap">
+					<div class="gnb">
+						<ul class="gnb_left">
+							<li class="m01">
+								프로그램
+							</li>
+							<li class="m02">
+								뉴스
+							</li>
+							<li class="m03">
+								VOD
+							</li>
+						</ul>
+						<ul class="gnb_right">
+							<li class="m04">
+								이용권
+							</li>
+							<li class="m05">
+								이벤트
+							</li>
+							<li class="m06">
+								편성표
+							</li>
+							<li class="m07">
+								온에어
+							</li>
+							<li class="gnb_search">
+								<a href="#" onclick="return false;">검색하기</a>
+								<div class="search_zone_search-form-wrap" data-form-id="_searchForm">
+									<span>
+										<a href="#" onclick="return false;" class="btn_inp_search_btn-search-confirm">키워드 검색하기</a>
+										<a href="#" onclick="return false;" class="del">닫기</a>
+									</span>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<h2 class="hide_txt">본문 영역</h2>
+		<div id="container">
+			<a href="#">
+				<div class="pro_sub_top_area" style="background-color:#23769F;">
+					<img src="bro.jpg" alt class="_fallback" data-src="bro.jpg">
+				</div>
+			</a>
+			<div class="pro_notice no_bottom">
+				<div class="bx_notice clfix">
+					<strong>이성 상실 본능 충실 &lt아는 형님></strong>
+					<span>
+						<p>
+							<font color="#ff007f">
+								<font color="#ff007f">
+									<font color="#000000">
+										<font color="#980000">
+											<strong>
+												<font color="#ff007f">매주 토요일 저녁 8시 50분 방송!</font>
+											</strong>
+										</font>
+										&nbsp;
+									</font>
+								</font>
+							</font>
+							<strong>
+								<u>
+									<a href="http://tv.jtbc.joins.com/jtbcbros">
+										<font color="#030066">
+											<u>http://tv.jtbc.joins.com/jtbcbros</u>
+										</font>
+									</a>
+								</u>
+							</strong>
+						</p>
+					</span>
+				</div>
+			</div>
+			<div id="content" class="clfix">
+				<div class="side_content_area" data-program-code="PR10010392">
+					<div class="lnb_area">
+						<ul class="lnb">
+							<li class="on">
+								<a href="#" onclick="return false;">아는 형님</a>
+								<div class="lnb_2depth_area">
+									<span class="bu"></span>
+									<ul class="lnb_2depth" style="display:block; border:none;">
+										<li>
+											<a href="#"> 프로그램 정보</a>
+										</li>
+										<li class="on_2depth">
+											<a href="#"> 출연진 소개</a>
+										</li>
+									</ul>
+								</div>
+							</li>
+							<li class= " ">
+								<a href="#" onclick="return false;">방송보기</a>
+								<div class="lnb_2depth_area">
+									<span class="bu"></span>
+									<ul class="lnb_2depth">
+										<li>
+											<a href="#">예고편</a>
+										</li>
+										<li>
+											<a href="#">다시보기</a>
+										</li>
+										<li>
+											<a href="#">명장면클립
+												<span class="ico_new">
+													<em class="hide_txt">최신</em>
+												</span>
+											</a>
+										</li>
+									</ul>
+								</div>
+							</li>
+							<li class=" ">
+								<a href="#" onclick="return false;">형님 스페셜</a>
+								<div class="lnb_2depth_area">
+									<span class="bu"></span>
+									<ul class="lnb_2depth">
+										<li>
+											<a href="#">미공개 영상</a>
+										</li>
+										<li>
+											<a href="#">메이킹 영상</a>
+										</li>
+									</ul>
+								</div>
+							</li>
+							<li class=" ">
+								<a href="#" onclick="return false;">현장 스케치</a>
+								<div class="lnb_2depth_area">
+									<span class="bu"></span>
+									<ul class="lnb_2depth">
+										<li>
+											<a href="#">포토 갤러리</a>
+										</li>
+									</ul>
+								</div>
+							</li>
+							<li class=" ">
+								<a href="#">공식 SNS</a>
+								<div class="lnb_2depth_area">
+									<span class="bu"></span>
+									<ul class="lnb_2depth">
+										<li>
+											<a href="#" title="새창열림" target="_blank">페이스북</a>
+										</li>
+										<li>
+											<a href="#"title="새창열림" target="_blank">인스타그램</a>
+										</li>
+									</ul>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div class="sub_banner01">
+						<img src="10.jpg" alt="광고1">
+					</div>
+					<div class="sub_comm_content ui_slider ui_complete"></div>
+					<div class="sub_comm_content no_line ui_slider ui_complete"></div>
+						<div class="sub_comm_content"></div>
+						<div class="sub_banner01">
+							<img src="11.jpg" alt="광고2">
+						</div>
+						<div class="sub_comm_content lnb_on_air ui_slider ui_complete">
+						</div>
+						<div class="sub_comm_content"></div>
+						<div class="sub_comm_content last_child"></div>
+						
+						<div class="sub_banner01">
+							<img src="12.jpg" alt="광고3">
+						</div>
+						<div class="sub_comm_content"></div>
+				</div>
+				<div id="skip_pass" class="content_area">
+					<div class="content_tit_area clfix first_child">
+						<h2 class="content_tit">출연진 소개</h2>
+						<ul class="location_map clfix">
+							<li class="first_child">
+								<a href="#" class="home">
+									<i class="fa fa-home" aria-hidden="true">
+										<span class="hide_txt">HOME</span>
+									</i>
+								</a>
+							</li>
+							<li>
+								<a href="#">TV</a>
+							</li>
+							<li>
+								<a href="#">아는 형님</a>
+							</li>
+							<li>
+								<a href="#">출연진 소개</a>
+							</li>
+						</ul>
+					</div>
+					<ul class="actor_list">
+						<li>
+							<div class="actor_info">
+								<dl class="clfix">
+									<dt>
+										<strong class="vn2">강호동</strong>
+										<span class="rn2">MC</span>
+									</dt>
+									<dd class="pic2">
+										<img src="1.jpg" alt="강호동 MC의 사진" class="_fallback">
+									</dd>
+									<dd>
+										"자타공인 대한민국 대표 MC!"<br>"인생 좀 아는 형님으로의 변신! 강호동!"
+									</dd>
+								</dl>
+							</div>
+						</li>
+						<li>
+							<div class="actor_info">
+								<dl class="clfix">
+									<dt>
+										<strong class="vn2">서장훈</strong>
+										<span class="rn2">MC</span>
+									</dt>
+									<dd class="pic2">
+										<img src="2.jpg" alt="서장훈 MC의 사진" class="_fallback">
+									</dd>
+									<dd>
+										"농구 코트를 뒤흔들던 국보급 센터!"<br>"이젠 예능 판도를 뒤흔드는 서장훈!"
+									</dd>
+								</dl>
+							</div>
+						</li>
+						<li>
+							<div class="actor_info">
+								<dl class="clfix">
+									<dt>
+										<strong class="vn2">김영철</strong>
+										<span class="rn2">MC</span>
+									</dt>
+									<dd class="pic2">
+										<img src="3.jpg" alt="김영철 MC의 사진" class="_fallback">
+									</dd>
+									<dd>
+										"지치지않는 슈퍼파월 입담!"<br>"대세 예능인! 김영철!"
+									</dd>
+								</dl>
+							</div>
+						</li>
+						<li>
+							<div class="actor_info">
+								<dl class="clfix">
+									<dt>
+										<strong class="vn2">이수근</strong>
+										<span class="rn2">MC</span>
+									</dt>
+									<dd class="pic2">
+										<img src="4.jpg" alt="이수근 MC의 사진" class="_fallback">
+									</dd>
+									<dd>
+										"작은 키에 꾹꾹 눌러 담은 재치!"<br>"프로 희극인 이수근!"
+									</dd>
+								</dl>
+							</div>
+						</li>
+						<li>
+							<div class="actor_info">
+								<dl class="clfix">
+									<dt>
+										<strong class="vn2">김희철</strong>
+										<span class="rn2">MC</span>
+									</dt>
+									<dd class="pic2">
+										<img src="5.jpg" alt="이수근 MC의 사진" class="_fallback">
+									</dd>
+									<dd>
+										"주니어에서 형님으로 거듭나다!"<br>"영원한 우주대스타 김희철!"
+									</dd>
+								</dl>
+							</div>
+						</li>
+						<li>
+							<div class="actor_info">
+								<dl class="clfix">
+									<dt>
+										<strong class="vn2">민경훈</strong>
+										<span class="rn2">MC</span>
+									</dt>
+									<dd class="pic2">
+										<img src="6.jpg" alt="민경훈 MC의 사진" class="_fallback">
+									</dd>
+									<dd>
+										"호소력 짙은 목소리의 꽃미남 보컬!"<br>"예능까지 완벽 접수! 민경훈!"
+									</dd>
+								</dl>
+							</div>
+						</li>
+						<li>
+							<div class="actor_info">
+								<dl class="clfix">
+									<dt>
+										<strong class="vn2">이상민</strong>
+										<span class="rn2">MC</span>
+									</dt>
+									<dd class="pic2">
+										<img src="7.jpg" alt="이상민 MC의 사진" class="_fallback">
+									</dd>
+									<dd>
+										"지난 과거는 가라가라 멀리 떠나가라~"<br>"인생 경험치 만렙! 세상만사 꿰뚫어 보는 이상민"
+									</dd>
+								</dl>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<h2 class="hide_txt">하단 영역</h2>
+		<div id="footer">
+			<div class="f_content">
+				<div class="f_menu">
+					<ul class="clfix">
+						<li>
+							<a href="#">JTBC 소개</a>
+						</li>
+						<li>
+							<a href="#" target="_blank" tilte="새창열림">방송 광고</a>
+						</li>
+						<li>
+							<a href="#">큐톤표</a>
+						</li>
+						<li>
+							<a href="#" target="_blank" tilte="새창열림">이용약관</a>
+						</li>
+						<li>
+							<a href="#"><strong>개인정보처리방침</strong></a>
+						</li>
+						<li>
+							<a href="#">청소년보호정책</a>
+						</li>
+						<li>
+							<a href="#">견학신청</a>
+						</li>
+						<li>
+							<a href="#">사이트맵</a>
+						</li>
+					</ul>
+					<ul class="clfix f_secone">
+						<li>
+							<a href="#">JTBC 홍보</a>
+						</li>
+						<li>
+							<a href="#">JTBC 서포터즈</a>
+						</li>
+						<li>
+							<a href="#">JTBC 캠페인</a>
+						</li>
+						<li>
+							<a href="#" target="_blank" title="새창열림">웹 광고</a>
+						</li>
+						<li>
+							<a href="#" target="_blank" title="새창열림">편성규약</a>
+						</li>
+						<li>
+							<a href="#">시청자위원회 평가원</a>
+						</li>
+						<li>
+							<a href="#" target="_blank" title="새창열림">뉴스제보하기</a>
+						</li>
+						<li>
+							<a href="#">JTBC 아나운서</a>
+						</li>
+					</ul>
+					<a href="#" onclick="return false;" title="Footer 메뉴 더 보기" class="f_more">더보기</a>
+				</div>
+			</div>
+			<div class="f_address_wrap">
+				<div class="f_address">
+					<a href="#" title="새창" target="_blank" class="f_logo">
+						<img src="f_logo.gif" alt="중앙그룹" class="_fallback">
+					</a>
+					<ul class="clfix" >
+						<li>(주)제이티비씨</li>
+						<li>대표이사 : 김수길</li>
+						<li>서울특별시 마포구 상암산로 48-6 (02) 751-6000</li>
+						<li class="last">
+							<a href="#" onclick="return false;" class="_jtbc-route">오시는길</a>
+						</li>
+						<li class="last">
+							<a href="#" target="_blank" title="새창열림">부정청탁제보센터</a>
+						</li>
+					</ul>
+				</div>
+				<div class="f_address">
+					<ul class="clfix" >
+						<li>(주) 제이티비씨콘텐트허브</li>
+						<li>대표이사 : 정경문, 장경진, 박준서</li>
+						<li>사업자등록번호 : 120-81-93457</li>
+						<li class="last">통신판매업신고번호 : 강남01616</li>
+					</ul>
+					<p class="copyright">JTBC, JTBC Content Hub의 모든 콘텐츠는 저작권법의 보호를 받은바, 무단전재, 복사, 배포 등을 금합니다.</p>
+					<p class="qr_code">
+						<img src="qr_code.gif" alt="QR CODE" class="_fallback">
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</body>
+</html>

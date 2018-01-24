@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.library.dao.config.mapper.RentalListMapper">
+
+	<sql id="all-column">
+		rental_no,
+		user_id,
+		book_id,
+		rental_start,
+		rental_end
+	</sql>
+
+	<resultMap type="rentalList" id="rentalList-resultmap">
+		<id column="rental_no" property="rentalNo" />
+		<result column="user_id" property="userId" />
+		<result column="book_id" property="bookId" />
+		<result column="rental_start" property="rentalStart" />
+		<result column="rental_end" property="rentalEnd" />
+	</resultMap>
+	
+	<resultMap type="rentalList" id="rentalList-resultmap2">
+		<id column="rental_no" property="rentalNo" />
+		<result column="user_id" property="userId" />
+		<result column="book_id" property="bookId" />
+		<result column="rental_start" property="rentalStart" />
+		<result column="rental_end" property="rentalEnd" />
+		<result column="user_name" property="userName" />
+	</resultMap>
+	
+	<resultMap type="rentalList" id="rentalList-book-resultmap" extends="rentalList-resultmap">
+		<association property="book" resultMap="kr.co.library.dao.config.mapper.bookMapper.book-resultmap"/>
+	</resultMap>
+	
+	<resultMap type="rentalList" id="rentalList-book-user-resultmap" extends="rentalList-resultmap2">
+		<association property="book" resultMap="kr.co.library.dao.config.mapper.bookMapper.book-resultmap"/>
+	</resultMap>
+	
+	<resultMap type="map" id="rentalList-book-uesrName-resultmap">
+		<result javaType="string" column="user_name" property="user_name"/>
+		<association property="list" resultMap="rentalList-book-resultmap"/>
+	</resultMap>
+
+	<insert id="insertRentalList" parameterType="rentalList">
+		<selectKey resultType="int" keyProperty="rentalNo" order="BEFORE">
+			SELECT rental_no_seq.nextval FROM dual
+		</selectKey>
+		INSERT INTO RENTAL_LIST
+		VALUES (#{rentalNo},
+		#{userId},
+		#{bookId},
+		SYSDATE,
+		null)
+	</insert>
+
+	<update id="updateRentalList" parameterType="rentalList">
+		UPDATE RENTAL_LIST
+		SET rental_no = #{rentalNo},
+		user_id = #{userId},
+		book_id = #{bookId},
+		rental_start = #{rentalStart},
+		rental_end = #{rentalEnd}
+		WHERE rental_no
+		= #{rentalNo}
+	</update>
+ 
+	<delete id="deleteRentalList" parameterType="rentalList">
+		DELETE FROM
+		RENTAL_LIST
+		WHERE rental_no = #{rentalNo}
+	</delete>
+
+	<select id="selectRentalList" resultMap="rentalList-resultmap">
+		SELECT
+		<include refid="all-column" />
+		FROM RENTAL_LIST
+		ORDER BY rental_no
+	</select>
+	
+	<select id="selectRentalListByUserId" parameterType="string"
+		resultMap="rentalList-resultmap">
+		SELECT
+		<include refid="all-column" />
+		FROM RENTAL_LIST
+		WHERE user_id = #{value}
+	</select>
+
+	<select id="selectRentalListByBookId" parameterType="string"
+		resultMap="rentalList-resultmap">
+		SELECT
+		<include refid="all-column" />
+		FROM RENTAL_LIST
+		WHERE book_id = #{value}
+	</select>
+	
+	<select id="selectRentalListByUserIdToBook" parameterType="string" resultMap="rentalList-book-resultmap">
+		SELECT r.rental_no, r.user_id, r.book_id, r.rental_start, r.rental_end,
+		b.book_id, b.title, b.author, b.publisher, b.publish_date, b.rental_state
+		FROM rental_list r, book b
+		WHERE r.book_id = b.book_id(+) AND r.user_id = #{value}
+		ORDER BY r.rental_start DESC
+	</select>
+	
+	<select id="selectRentalListByUserIdCount" parameterType="string" resultType="int">
+		SELECT COUNT(*)
+		FROM rental_list
+		WHERE user_id = #{value}
+	</select>
+	
+	<select id="selectRentalListByRentalNo" parameterType = "int" resultMap = "rentalList-resultmap">
+		select 
+		<include refid="all-column" />
+		FROM RENTAL_LIST
+		WHERE rental_no = #{value}
+	</select>
+	
+	<select id="selectRentalListPagingByUserIdToBook" parameterType="map" resultMap="rentalList-book-resultmap">
+		SELECT rental_no, user_id, book_id, rental_start, rental_end, 
+				   title, author, publisher, publish_date, rental_state
+			FROM(
+				SELECT rownum rnum,
+					   rental_no_max rental_no, 
+					   user_id_max user_id, 
+					   book_id_max book_id, 
+					   rental_start_max rental_start,
+					   rental_end_max rental_end,
+					   title_max title, 
+					   author_max author, 
+					   publisher_max publisher, 
+					   publish_date_max publish_date, 
+					   rental_state_max rental_state
+				FROM(
+					SELECT r.rental_no rental_no_max, 
+						   r.user_id user_id_max, 
+						   r.book_id book_id_max, 
+						   r.rental_start rental_start_max,
+						   r.rental_end rental_end_max,
+						   b.title title_max, 
+						   b.author author_max, 
+						   b.publisher publisher_max, 
+						   b.publish_date publish_date_max, 
+						   b.rental_state rental_state_max
+					FROM rental_list r, book b
+					WHERE r.book_id = b.book_id(+) AND r.user_id = #{userId}
+					ORDER BY r.rental_start DESC
+				)
+				WHERE rownum &lt;= #{endIndex}
+			)
+			WHERE rnum >= #{startIndex}
+	</select>
+	
+	
+	<select id="selectRentalListPagingByEndIsNull" parameterType="map" resultMap="rentalList-book-user-resultmap">
+			SELECT rental_no, user_id, book_id, rental_start, rental_end, 
+				   title, author, publisher, publish_date, rental_state,
+				   user_name
+			FROM(
+				SELECT rownum rnum,
+					   rental_no_max rental_no, 
+					   user_id_max user_id, 
+					   book_id_max book_id, 
+					   rental_start_max rental_start,
+					   rental_end_max rental_end,
+					   title_max title, 
+					   author_max author, 
+					   publisher_max publisher, 
+					   publish_date_max publish_date, 
+					   rental_state_max rental_state,
+					   user_name_max user_name
+				FROM(
+					SELECT r.rental_no rental_no_max, 
+						   r.user_id user_id_max, 
+						   r.book_id book_id_max, 
+						   r.rental_start rental_start_max,
+						   r.rental_end rental_end_max,
+						   b.title title_max, 
+						   b.author author_max, 
+						   b.publisher publisher_max, 
+						   b.publish_date publish_date_max, 
+						   b.rental_state rental_state_max,
+						   u.user_name user_name_max
+					FROM rental_list r, book b, user_management u
+					WHERE r.book_id = b.book_id(+) AND r.user_id = u.user_id(+)
+					AND r.rental_end IS NULL
+					<if test="userId != null and userId != ''">
+						AND r.user_id = #{userId}
+					</if>
+					ORDER BY r.rental_start DESC
+				)
+				WHERE rownum &lt;= #{endIndex}
+			)
+			WHERE rnum >= #{startIndex}
+	</select>
+	
+	<select id="selectRentalListByEndIsNullCount" resultType="int">
+		SELECT COUNT(*)
+		FROM rental_list
+		WHERE rental_end IS NULL
+	</select>
+	
+	<select id="selectRentalListByUserIdMaxEnd" resultType="string" resultMap="rentalList-resultmap">
+		SELECT <include refid="all-column" />
+		FROM rental_list
+		WHERE rental_end IS NOT NULL AND user_id = #{value}
+		ORDER BY rental_end DESC
+	</select>
+
+	<select id="selectRentalListByEndIsNullCountByUserId" parameterType="string" resultType="int">
+		select count(*)
+		from rental_list
+		where rental_end is null and user_id = #{value}
+	</select>
+</mapper>
