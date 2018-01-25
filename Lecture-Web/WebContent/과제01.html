@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	/*
+		배열에 추가할 데이터 입력(quit 입력시 종료)
+		aaa
+		10
+		A
+		12.34
+		true
+		quit
+		배열에 입력된 원소개수 : 5개
+		aaa 10 A 12.34 true
+		
+		---------------------
+		
+		
+		
+	 */
+
+	//과제 1-1 	1. Array객체
+	var array = new Array();
+	while (true) {
+		var v = prompt("배열에 추가할 데이터 입력(quit입력시 종료)", "");
+
+		switch (v) {
+		case "quit":
+			alert("종료됩니다.");
+			break;
+		default:
+			array.push(v);
+
+		
+			break;
+		}
+		if(v=="quit")
+		break;
+	}
+	document.write("배열에 추가할 데이터 입력:"+array.length + "개 <br>");
+	
+	for (var i = 0; i < array.length; i++) {
+		
+		document.write(array[i]+"<br>")
+	}
+	 
+	//과제 1-2	2. eval 이용 var array=[];어떻게 집어넣을건지 고민.
+	
+	s
+</script>
+</head>
+<body>
+
+</body>
+</html>

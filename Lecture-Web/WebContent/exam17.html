@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	/*
+		브라우저 객체 모델(BOM)
+		 - window 객체(최상위 객체)
+		 	- location 객체
+		 	- navigator 객체
+		 	- document 객체
+		 	- history 객체
+		 	- screen 객체
+	
+		* var를 안붙인 변수들을 앞에 window.이 붙은것이다.
+		*/
+	var num = 10;
+	hobby = 'reading';
+	
+	alert('num:'+ num);
+	alert('hobby :'+ window.hobby);
+	
+	//var를 붙이지 않은 전역변수들은 함수내부에 있는데 
+	//함수가 사라져도 살아있다는 위험도가이 있음
+	function aaa(){
+		var i = 20;
+		i2 = 100;
+		bbb();
+		num = 20;
+		
+	}
+	function bbb(){
+		alert("i2 :" + i2);
+	}
+aaa();
+alert("num : "+ num);
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

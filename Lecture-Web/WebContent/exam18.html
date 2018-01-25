@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	var sub = window.open('','','width=400, height=300');
+	if(!sub){
+		alert('팝업 해제를 선택하세요');
+		
+	}else{
+		
+		//moveTo 팝업창을 어디론가 옮기겠다.
+		
+		/* sub.moveTo(200, 100);
+		sub.moveBy(50, 50);//moveTo자리에서 얼마만큼 옮기겠다.
+		
+		//setInterval(작업목록, 인터벌시간);
+		setInterval(function(){
+			sub.moveBy(20,20);
+		}, 1000);//1초 */
+		
+		//resizeTo() : 팝업창을 크기를 바꾸고싶다.
+		var width= screen.width;
+		var height= screen.height;
+		sub.resizeTo(width, height); 
+		
+		var cnt = 0;
+		var pId = setInterval(function(){
+			//sub.moveBy(25, 25);
+			sub.resizeBy(-50,-50);
+			if(++cnt % 5 ==0){//5번만 사이즈를 줄이고 
+				clearInterval(pId);//멈추게한다.
+			}
+		}, 1000);
+		
+		
+	}
+</script>
+</head>
+<body>
+	
+</body>
+</html>

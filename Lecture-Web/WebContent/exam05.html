@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	var num = Number(prompt('정수를 입력하세요')); //prompt가 받아오는 값은 전부 string
+	var num2 = Number(prompt('정수를 입력하세요'));
+	
+	var bool = num2 != 0 && num % num2 == 0;
+	alert('약수 여부 :'+ bool);
+	
+	switch (num % 2) {
+	case 1:
+		alert(num+": 홀수입니다.");
+		break;
+	case 0:
+		alert(num+": 짝수입니다.");
+		break;
+	}
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

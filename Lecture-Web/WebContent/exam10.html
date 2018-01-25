@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function func(){
+		console.log(arguments);
+		console.log(arguments.length);
+		
+		switch (arguments.length) {
+		case 0:
+			alert('call...');
+			break;
+		case 1:
+			alert('data : '+ arguments[0]);
+			break;
+		case 2:
+			alert('첫번째 정수 : '+ arguments[0] 
+				+ ", 두번째 정수 : "+arguments[1]);
+		}
+	}
+	func();
+	func('a');
+	func(10, 20);
+</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+
+	var num = 10;
+	var num = 20; //문법 에러가 나지 않듯이 함수도 똑같다.
+
+	function testFunction(){//function => 함수
+		alert('call...');
+	}
+	
+	function testFunction(data){
+	/* javascript에서는 리턴타입과 매개변수 타입 선언하지않고 변수명만 적어준다. 
+	   javascript에서는 오버라이딩이 없다.
+	*/
+		alert('data :' + data);
+	}
+	function sum(a, b){
+		var s = 0;
+		while(a <= b){
+			s += a++;
+			return s;
+		}
+	}
+	var temp = function func(){
+		alert('call func()...');
+	}
+	
+	var func01 = function(){
+		alert('call func01...');
+	}
+	function prn_func(func){
+		func();
+	}
+	
+	/* function getSum(a, b){
+		return a + b ;
+	} */
+	
+	function printSum(a, b){
+		
+		function sum(a, b){
+			return a+b;
+		}
+		/* alert(a+'+'+b+'='+getSum(a, b)); */
+		alert(a+'+'+b+'='+sum(a, b));
+	}
+	
+	printSum(1, 10);
+	
+	prn_func(func01);
+	
+	func01();
+	
+	//func();
+	temp();
+	var total = sum(1, 10);
+	alert('총합 : '+ total);
+	//함수의 이름만을 볼뿐 함수인자가 1개이든 2개이든 없든 상관하지않는다.
+	testFunction();
+	testFunction(10);
+	testFunction('a', 'b');
+	
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

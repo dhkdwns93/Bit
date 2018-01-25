@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script>
+var names = ['홍길동', '최길동', '강길동', '유길동', '송길동'];
+document.write('name :'+names + "<br>");
+
+for(var i = 0 ; i<names.length ; ++i){
+	document.write(i+'번째 :'+names[i] + "<br>");
+}
+document.write('<hr>');
+
+for(var i in names){/* in : 자신이 가지고있는 모든 값(집합인 것에 모두 사용가능)
+						- for문에서는 index값
+						- 객체에서는 메서드 를 가리킴*/
+	document.write(i+'번째 값: '+ names[i] + '<br>');
+}
+</script>
+
+</head>
+<body>
+
+</body>
+</html>

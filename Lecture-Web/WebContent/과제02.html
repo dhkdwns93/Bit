@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	/* function clickBtn() {
+		var numbers = document.getElementById("number");
+		alert("click..");
+		numbers.innerHTML = parseInt(numbers.innerHTML) + 1;
+	} */
+	
+	
+	function clickBtn(){
+		var numbers = document.getElementById("number");
+		alert("click...");
+		numbers.innerText = parseInt(numbers.innerText)+1;
+		
+	}
+</script>
+</head>
+<body>
+
+	<span id="number">0</span>번 클릭
+	<input type="button" value="클릭" onclick="clickBtn()" />
+</body>
+</html>

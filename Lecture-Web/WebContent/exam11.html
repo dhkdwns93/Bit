@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+/* innerHTML과 innerText는 window.onload를 붙여줘야한다. */
+	window.onload = function(){
+		
+		alert('innerHTML : '+ document.body.innerHTML);
+		alert('innerText : '+ document.body.innerText);
+		//수정
+		var list = '';
+		
+		list += "<ul>";
+		list += '<li>aaa</li>';
+		list += '<li>bbb</li>';
+		list += '<li>ccc</li>';
+		list += '</ul>';
+		
+		//document.body.innerHTML += list;
+		document.body.innerHTML  += '<br>';
+		document.body.innerText += list;
+		
+		//document.body.innerHTML = list;
+		//document.body.innerText = list;
+		
+	}
+	
+</script>
+</head>
+<body>
+	hello<br>
+	<h2>환영합니다.</h2>
+</body>
+</html>

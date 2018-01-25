@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+/* java의 배열은 한번 값이 정해지면 추가가 되지않고, 하나의 타입으로 만 이루어지지만
+   script는 배열을 추가할수도있고, 여러 형태의 타입들을 넣을수 있다.*/
+	var array = ['A', 10, 12.34, true, "ABC", null, '!'];
+	document.write('array:'+ array+'<br>');
+	
+	array[7] = 'add';
+	document.write('\"add"\ 추가후 array:'+ array+'<br>');
+	
+	array[10] = 'end';
+	document.write('\"end"\ 추가후 array:'+ array+'<br>');
+	document.write('원소의 개수 :'+ array.length + "개 <br>");
+	
+	array.push('추가...');/* 입력된곳의 맨 마지막에 추가되는 메서드 */
+	document.write('\array:'+ array+'<br>');
+	document.write('원소의 개수 :'+ array.length + "개 <br>");
+	
+	
+	var num = array.pop();/* 제일 마지막에 입력한 값을 삭제해주는 메서드 */
+	document.write("삭제된 값 : "+num+"<br>");
+	document.write('\array:'+ array+'<br>');
+	document.write('원소의 개수 :'+ array.length + "개 <br>");
+	
+	var str = "Hello world!!";/* 문자열도 배열처럼 length를 받아올수있다. */
+	document.write("str: "+str+"<br>");
+	document.write(" 문자열의 길이 : "+ str.length+"개 <br>");
+	
+	var array2 = new Array();
+	document.write('array2 원소 개수 : '+ array2.length+"개<br>");
+	
+	var array3 = new Array("hello", 12, 10.56, false);
+	document.write('array3 원소 개수 : '+ array3.length+"개<br>");
+	document.write('array3 : '+ array3 +"<br>");
+	
+	
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>
