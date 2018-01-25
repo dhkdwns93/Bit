@@ -22,7 +22,7 @@
 	 */
 
 	//과제 1-1 	1. Array객체
-	var array = new Array();
+	/* var array = new Array();
 	while (true) {
 		var v = prompt("배열에 추가할 데이터 입력(quit입력시 종료)", "");
 
@@ -45,10 +45,60 @@
 		
 		document.write(array[i]+"<br>")
 	}
-	 
+	 */
 	//과제 1-2	2. eval 이용 var array=[];어떻게 집어넣을건지 고민.
 	
-	s
+	 /* var array2 =[];
+	
+	while(true){
+		var msg = prompt("값을 집어넣으세요", "");
+			
+		switch (msg) {
+		case "quit":
+			alert("종료합니다.")
+			break;
+
+		default:
+			var w = "array2.push(msg)";
+			eval(w);
+			
+			break;
+		}
+		if(msg=="quit")
+			break;
+		
+	}
+	document.write("[");
+	for(var i = 0 ; i<array2.length ; i++){
+		
+		document.write(array2[i]);
+	} 
+	document.write("]"); */
+	
+	
+	var count=0;
+	while (true) {
+		var cnt = 0 ;
+		cnt = parseInt(prompt("1+1=?", ""));
+		if(cnt!=2){
+			document.write((++count)+"번 틀렸습니다. 다시도전하세요.");
+			continue;
+		}
+		cnt = parseInt(prompt("7+1=?", ""));
+		if(cnt != 8){
+			document.write((++count)+"번 틀렸습니다. 다시도전하세요.");
+			continue;
+		}
+		
+		cnt = parseInt(prompt("7*6=?", ""));
+		if(cnt != 63){
+			document.wrtie((++count)+"번 틀렸습니다. 다시도전하세요.");
+			continue;
+		}
+		break;
+	}
+	document.write("수고하셨습니다.");
+	
 </script>
 </head>
 <body>
