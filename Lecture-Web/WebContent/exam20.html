@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	//Object 객체 생성
+	var person = {
+			// 변수명 : 값, 변수명 : 값, ....;
+		name:"홍길동",
+		"phone":"010-1111-2222",
+		"addr" : "서울시 서초구 서초동",
+		//쌍따옴표("")를 넣어주지 않아도 실행이 되지만 파싱할 경우 에러가 날 수도 
+		//있기때문에 쌍따옴표("")를 넣어주는 습관을 만드는게 좋다.
+		"info" : function(){
+			/*
+			alert("name : "+ this.name +"\n"+
+					"phone : "+ this.phone+ "\n"+
+					"addr : "+ this.addr);
+			*/
+			/* var msg = '';
+			with(this){
+				msg += 'name : ' + name +"\n";
+				msg += 'phone : ' + phone +"\n";
+				msg += 'addr : ' + addr +"\n";
+			}
+			alert(msg); */
+			
+			//여기서의 key가 name, phone, addr, info를 뜻함
+			for(var key in this){
+				//alert(key); - javascript에서는 객체도 배열로 본다.
+				alert(key + " : " + this[key]);
+			}
+		}
+	};
+	//console.log(person);
+	person.info();
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

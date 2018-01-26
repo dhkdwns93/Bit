@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	/*
+		JSON.stringify : 자바스크립트객체값을 문자열로 변환
+		JSON.parse	   : 문자열을 자바스크립트 객체로 변환
+	*/
+	
+	var person = {
+			"name" : "홍길동",
+			"phone": "010-1111-2222",
+			"addr" : "서울시 서초구"
+		};
+	
+	//alert(person);
+	//alert(typeof person);
+	//alert(typeof JSON.stringify(person));
+	
+	//객체형(Object)인 person을 문자열로 출력.
+	var strPerson = JSON.stringify(person);
+	alert(strPerson);
+	
+	//문자열을 다시 객체형태(Object)로 변환
+	var obj = JSON.parse(strPerson);
+
+	document.write("name : "+ obj.name + "<br>");
+	document.write("phone : "+ obj.phone + "<br>");
+	document.write("addr : "+ obj.addr + "<br>");
+
+	
+	with(obj){
+	document.write("name : "+ name + "<br>");
+	document.write("phone : "+ phone + "<br>");
+	document.write("addr : "+ addr + "<br>");		
+	}
+</script>
+</head>
+<body>
+
+</body>
+</html>

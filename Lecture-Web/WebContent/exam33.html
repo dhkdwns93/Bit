@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	//다중
+	window.onload = function(){
+					//getElements 이면 배열로 받을 수 있다.
+	 	var node = document.getElementsByTagName("td");
+//	 	console.log(node);
+		node[0].innerHTML = '아이디';
+		
+		/*
+			querySelector(태그명) : 맨 처음으로 검색된 tag가 반환.
+			querySelectorAll(태그명) : 태그에 해당되는 모든 tag가 반환.
+		*/
+		
+//		node[1].innerHTML = '비밀번호';
+		var nodes = document.querySelectorAll('td');
+		nodes[1].innerHTML = "패스워드";
+		
+	}
+</script>
+</head>
+<body>
+	<table style="width:100px; " border="1">
+		<tr>
+			<td>ID</td>
+		</tr>
+		<tr>
+			<td>PASSWORD</td>
+		</tr>
+	</table>
+</body>
+</html>

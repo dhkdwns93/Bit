@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function clickButton(){
+		//setTimeout(명령어, ms(초)));
+		//setTimeout("alert('5초지남')", 5000);
+		setTimeout(function(){
+			alert('5초가 지났습니다.');
+		}, 5000);
+	}
+</script>
+</head>
+<body>
+
+	<!-- on이 붙는것들은 이벤트 핸들러이기 때문에 javascript를 붙여주지 않아도 동작되지만 원래는
+		<a href="javascript:doAction()">이런식으로 javascript를 붙여줘야한다.
+	 -->
+	<input type="button" value="클릭" onclick="alert('클릭...')">
+	<input type="button" value="타이머" onclick="clickButton()">
+	
+</body>
+</html>

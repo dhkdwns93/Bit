@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script>
+	/*
+		0번째 변수 : 10
+		1번째 변수  : 20
+		...
+	*/
+	var nums = [10, 20, 30, 40, 50];
+	
+	for(var i =0 ; i < nums.length ; i++){
+		document.write(i + "번째 변수 : "+ nums[i] + "<br>");
+	}
+	document.write("<hr>");
+	
+	for(var i in nums){
+		document.write(i + "번째 변수 : "+ nums[i] + "<br>");
+	}
+	document.write("<hr>");
+		
+	//한번의 객체를 돌때마다 forEach를 호출하겠다.
+	nums.forEach(function(element, index, nums){
+		//document.write(arguments.length + "<br>");
+		//document.write(index + "번째 변수 : "+ element+ "<br>");
+		document.write(index + "번째 변수 : "+ nums[index]+ "<br>");
+	});
+	
+	/* var copyNums = [];
+	for(var i in nums){
+		copyNums[i] = nums[i];
+	}
+	document.write("nums : "+ nums +"<br>");
+	document.write("copyNums : "+ copyNums +"<br>");
+	 */
+	
+	document.write("<hr>");
+	
+	 //.map() index 개수만큼 호출
+	var copyNums = nums.map(function(element, index, nums){
+		return element + 100;
+	});
+	 
+	document.write("nums : "+ nums +"<br>");
+	document.write("copyNums : "+ copyNums +"<br>");
+</script>
+</head>
+<body>
+
+</body>
+</html>

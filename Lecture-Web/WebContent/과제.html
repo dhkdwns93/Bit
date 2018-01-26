@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+button {
+	width: 100%;
+	height: 100%;
+}
+</style>
+<script>
+	function numBtn(val) {
+		var result = document.getElementById('result');
+
+		if (val.value == "=") {
+			/* console.log(eval('result.innerHTML'));
+			result.innerHTML
+			eval('result.innerHTML');
+			 */
+		} else if (val.value == "Clear") {
+			result.innerHTML = "";
+		} else {
+			result.innerHTML = result.innerHTML + val.value;
+		}
+
+	}
+</script>
+</head>
+<body>
+	<table border="1">
+
+		<tr id="inpuText">
+			<td colspan="4" id="result" style="height: 40px; width: 99%;"></td>
+		</tr>
+		<tr class="number">
+			<td><button value="7" onclick="numBtn(this)">7</button></td>
+			<td><button value="8" onclick="numBtn(this)">8</button></td>
+			<td><button value="9" onclick="numBtn(this)">9</button></td>
+			<td><button value="/" onclick="numBtn(this)">/</button></td>
+		</tr>
+		<tr class="number">
+			<td><button value="4" onclick="numBtn(this)">4</button></td>
+			<td><button value="5" onclick="numBtn(this)">5</button></td>
+			<td><button value="6" onclick="numBtn(this)">6</button></td>
+			<td><button value="*" onclick="numBtn(this)">*</button></td>
+		</tr>
+		<tr class="number">
+			<td><button value="1" onclick="numBtn(this)">1</button></td>
+			<td><button value="2" onclick="numBtn(this)">2</button></td>
+			<td><button value="3" onclick="numBtn(this)">3</button></td>
+			<td><button value="-" onclick="numBtn(this)">-</button></td>
+		</tr>
+		<tr class="number">
+			<td><button value="0" onclick="numBtn(this)">0</button></td>
+			<td><button value="." onclick="numBtn(this)">.</button></td>
+			<td><button value="+" onclick="numBtn(this)">+</button></td>
+			<td><button value="%" onclick="numBtn(this)">%</button></td>
+		</tr>
+		<tr class="number">
+			<td colspan="2"><button value="=" onclick="numBtn(this)">=</button></td>
+			<td colspan="2"><button value="Clear" onclick="numBtn(this)">Clear</button></td>
+		</tr>
+
+	</table>
+</body>
+</html>

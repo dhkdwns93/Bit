@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	//단일
+	window.onload = function(){
+		//var id = document.getElementById("id");
+		var id = document.querySelector("#id");
+		id.innerHTML = '아이디';
+		var pwd = document.querySelector(".pwd");
+		pwd.innerHTML = '패스워드';
+	}
+</script>
+</head>
+<body>
+	<table style="width:100px; " border="1">
+		<tr>
+			<td id="id">ID</td>
+		</tr>
+		<tr>
+			<td class="pwd">PASSWORD</td>
+		</tr>
+	</table>
+</body>
+</html>

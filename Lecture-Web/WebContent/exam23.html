@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+//prototype은 변수, 함수도 넣을수 있다.
+/*	window
+ * 		.person
+ 			.prototype
+ */
+	function Person(name, phone, addr){
+		this.name = name;
+		this.phone = phone;
+		this.addr = addr;
+	}
+	var person = new Person("홍길동", "010-1111-2222", "서울시 서초구");
+	console.log(person);
+	//info만 따로 따로 연결되어있는 상태
+	Person.prototype.info = function(){
+		var msg = "";
+		for( var key in this){
+			if(typeof this[key] != 'function'){
+				msg += key + " : " + this[key] + "\n";
+			}
+			alert(msg);
+		}
+	};
+	person.info();
+	
+	Person.prototype.info = function(){
+		alert('change..');
+	}
+	person.info();
+</script>
+</head>
+<body>
+
+</body>
+</html>

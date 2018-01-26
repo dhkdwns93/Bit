@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function Person(name, phone, addr){
+		this.name = name;
+		this.phone = phone;
+		this.addr = addr;
+	}
+	
+	Person.prototype.hobby = "음악듣기";
+	
+	Person.prototype.info = function(){
+		var msg = "";
+		for( var key in this){
+			if(typeof this[key] != 'function'){
+				msg += key + " : " + this[key] + "\n";
+			}
+			alert(msg);
+		}
+	};
+	function Doctor(name, phone, addr, major){
+		/*  
+		this.name = name;
+		this.phone = phone;
+		this.addr = addr; 
+		*/
+		
+		
+		
+		//1-1. 상속받는 개념이아니라 똑같은 값들을 복사해 오자  
+		/*this.base = Person;
+		this.base(name, phone, addr);
+		*/
+		
+		//1-2 함수명.call() - 이함수를 호출하겠다.
+		//this 는 내쪽에다 쓰겠다.
+	//	Person.call(this, name, phone, addr); //call은 매개변수들을 지정해준다.
+		Person.apply(this, arguments); //arguments : 순차적으로 값이 들어가게 한다.	
+		this.major = major;
+		
+	}
+	//Prototype을 Person객체와 Doctor객체가 공유
+	Doctor.prototype = Person.prototype;
+	
+	var person = new Person("고길동", "010-1111-2222", "서울시 서초구");
+	person.info();
+	
+	
+	var doctor = new Doctor("강길동", "010-2222-3333", "경기도 광주시","신경외과");
+	//doctor.info();
+	//console.log(doctor);
+	alert(person instanceof Person);
+	alert(doctor instanceof Doctor);
+	alert(doctor instanceof Person);
+</script>
+</head>
+<body>
+	
+</body>
+</html>

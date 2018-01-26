@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+//객체생성 방법1 - 일반적인 함수 패턴
+	function makePerson(name, phone, addr){
+		var person = {
+			"name":name,
+			"phone":phone,
+			"addr":addr,
+			"info":function(){
+				var msg = "";
+				for(var key in this){
+				/*콘솔로 타입을 확인
+				  console.log(typeof key +":"+typeof this[key]);
+				*/
+				//if(key != "info") 
+					//=> info는 제외시키고싶다.
+				//콘솔로 타입을 확인했을때 3개 - String:String 1개 - String:function (info)
+				//info를 제외시키고 싶다면 this[key]를 통해서 function을 제외시켜준다.
+				//if(typeof this[key] != 'function')
+					msg+= key + ':'+ this[key]+"\n";
+				}
+				alert(msg);
+			}
+		};
+		return person;
+	}
+	
+	//var person = makePerson("홍길동", "010-1111-2222", "서울시 서초구 서초동");
+	//person.info();
+	
+	var persons = [
+		makePerson("홍길동", "010-1111-2222", "서울시 서초구"),
+		makePerson("강길동", "010-3333-4444", "경기도 성남시")
+		
+	];
+	persons.push(makePerson("최길동", "010-5555-6666", "서울시 동작구"));
+	/* var persons = [];
+	persons.push(makePrson); */
+	
+	for(var i in persons){
+		persons[i].info();
+	}
+</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+//	var str = "Hello World!!!";
+	var str = new String("Hello World!!!");
+	
+	String.prototype.change = function(){
+		
+		return this.bold().toUpperCase().fontcolor('orange').fontsize('15px').link('http://naver.com');
+		//String 객체는 자기자신 하나만 가지고 있기때문에 this를 쓰면 됨.
+		//개발자 도구에서 확인하면 css 사용 기능들 있음.
+		//bold() : 글씨 두껍게
+		//toUpperCase(): 대문자로 변환
+		//fontcolor(' ') : 폰트색상 변경
+		//fontsize(' ') : 폰트 사이즈 변경
+		//link() : 사이트 이동
+	};
+	document.write(str + "<br>");
+	document.write(str.change() + "<br>");
+</script>
+</head>
+<body>
+
+</body>
+</html>
