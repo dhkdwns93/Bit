@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="js/jquery-3.3.1.slim.min.js"></script>
+<script>
+	$(document).ready(function(){//call back함수
+		alert("load..");
+		//$('선택자').함수명(); - jQuery의 기본적인 형태
+	//	$('h1').hide();//-> style=display:none
+	/* jQuery문하고 javascript문법을 쓴다고 해서 잘못된것은 아니지만 
+		나오는 값의 결과가 다르다.
+	*/
+	//	$('#h01').hide();
+	//	var hTag = document.getElementById("h01");
+	//	hTag.style.display = 'none';
+	
+	//	$('h01').hide();
+		
+	//	$('h1.h01').hide();
+	
+	//	와일드카드(*) 사용 -> 전체 HTML 태그들이 display:none을 가지게 됨.
+	//	$('*').hide();
+	//	h1태그의 첫번째와 마지막
+	//	$('h1:first').hide();
+	//	$('h1:last').hide();
+	
+	});
+</script>
+</head>
+<body>
+	<hr>
+	<h1 id="h01">Hello</h1>
+	<h1>Hi</h1>
+	<h1 id="h02">안녕</h1>
+	<hr>
+	<h1 class="h01">Hello</h1>
+	<h1>Hi</h1>
+	<h2 class="h01">안녕</h2>
+</body>
+</html>

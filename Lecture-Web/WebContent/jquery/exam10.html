@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- <script src="js/jquery-3.3.1.slim.min.js"></script> -->
+<script src = "https://code.jquery.com/jquery-3.3.1.js"></script>
+<script>
+/**
+ * 이벤트 핸들러
+ Mouse : click, dblclick, mouseenter, mouseleave
+ keyboard : keydown, keyup, keypress
+ From : submit, focus, blur
+ DOCUMENT.WINDOW : load,resize, scroll
+
+ */
+	$(document).ready(function(){
+		$(':button').click(function(){
+		//	$('h1').hide();
+		
+		// body태그 밑에 h1들
+		//	$('body h1').hide();
+		
+		// body 태그 바로 직계 자손 h1만.
+		//	$('body > h1').hide();
+		});
+			$('h1').dblclick(function(){
+			//	$(this).hide('slow');//2초동안 
+				$(this).hide(1000);
+		});
+	});
+	
+	
+</script>
+</head>
+<body>
+	<h1>첫번째 문장입니다.</h1>
+	<h1>두번째 문장입니다.</h1>
+	<div>
+		<h1>세번째 문장입니다.</h1>
+	</div>
+	<h1>네번째 문장입니다.</h1>
+	<button>클릭하세요</button>
+</body>
+</html>

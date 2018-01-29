@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+ <!-- 상대경로-->
+<script src="js/jquery-3.3.1.slim.min.js"></script>
+
+<!--
+	http://localhost:8000/Lecture-Web/...
+	src="/"가 의미하는 곳은 8000/ => 이부분이다.
+	 - sendDirect
+	 
+	
+	프로젝트명/...   => 3가지 경우에만 슬래쉬(/) 프로젝트명/..에 위치하고 나머진 8000/ 슬래쉬 위치.
+	 - forward..
+	 - include..
+	 - XML에서 사용한 / 는 프로젝트명 다음'/'부분이다.
+ -->
+<!-- WebContent는 제외하고 경로를 적어줘야한다. -->
+<!-- <script src="/Lecture-Web/jquery/js/jquery-3.3.1.slim.min.js"></script> -->
+<!-- <script src="http://code.jquery.com/jquery-3.3.1.js"></script> -->
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+<script>
+	/* $(document).ready(); == window.onload(function(){}) */
+	//window.onload는 여러번사용해도 마지막 문장만이 한 번 실행되지만
+	//jquery는 하나만 실행되는것이 아니라 여러개의 문장들이 실행될수 있다.
+	
+	$(document).ready(function(){
+		alert('load...');
+	});
+	$(document).ready(function(){
+		alert('load2...');
+	});
+	
+	//$은 $(document).ready()를 함축적으로 가지고 있어서 아래처럼 줄여서 작성가능
+	$(function(){
+		alert("load3...");
+	});
+	
+</script>
+
+
+</head>
+<body>
+
+</body>
+</html>

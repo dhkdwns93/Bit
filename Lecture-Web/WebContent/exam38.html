@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function showInfo(){
+		var hobby = document.inputForm.hobby;
+		var mag="";
+		/* for(var i in hobby);
+			if(hobby[i].checked){
+				msg += hobby[i].value +'\n';
+			} */
+		//document.inputForm.hobby를 확인하면 맨뒤에 value=""값이 붙어서 length를 이용한 for문을 사용해야지 값이 나온다.
+			for(var i = 0 ; i < hobby.length ; i++){
+				if(hobby[i].checked){
+					msg += hobby[i].value + '\n';
+				}
+			}
+		alert(msg);
+	}
+	
+	function selectAll(){
+		var hobby = document.inputForm.hobby;
+		for(var i in hobby){
+			hobby[i].checked = true;
+		}
+	}
+	
+	function deSelectAll(){
+		var hobby = document.inputForm.hobby;
+		for(var i in hobby){
+			hobby[i].checked = false; \
+		}
+	}
+	
+	function toggle(val){
+		var hobby = document.inputForm.hobby;
+		for(var i in hobby){
+			hobby[i].checked = val; 
+		}
+		
+	function toggle(){
+		var hobby = document.inputForm.hobby;
+		var cnt = 0;
+		
+		for(var i = 0 ; i<hobby.length; i++){
+			if(!hobby[i].checked) break;	
+			cnt++;
+		}
+		/* for(var i = 0 ; i<hobby.length && hobby[i].checked ; i++){
+				cnt++;
+		} */
+			var check = true;
+			if(cnt == hobby.length){
+				check = false;
+			}
+		}
+		for(var i in hobby){
+			//hobby[i].checked = !hobby[i].checked;
+			hobby[i].checked = check;
+		}
+		
+	}
+}
+</script>
+</head>
+<body>
+	<form action="" name="inputForm">
+	당신의 취미는 ? <br>
+		<input type="checkBox" name="hobby" value="music"/>음악감상<br>
+		<input type="checkBox" name="hobby" value="movie"/>영화감상<br>
+		<input type="checkBox" name="hobby" value="reading"/>독서<br>
+		<input type="checkBox" name="hobby" value="game"/>게임<br>
+		<!-- <input type="button" value="전체선택" onclick="selectAll()"/>
+		<input type="button" value="전체해제" onclick="deSelectAll()" /> -->
+
+		<!-- <input type="button" value="전체선택" onclick="toggle('true')"/>
+		<input type="button" value="전체해제" onclick="toggle('false')" /> -->
+		
+
+		<input type="button" value="전체선택/해제" onclick="toggle()" />
+		<input type="button" value="결과보기" onclick="showInfo()" />
+	</form>
+</body>
+</html>

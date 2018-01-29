@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function whenSubmit(){
+		/*
+			사용자가 입력한 패스워드와 패스워드 확인이 서로 같으면 true 반환
+										서로 다르면 false 반환
+		*/
+		//자바스크립트는 숫자형과 문자열을 같다고 본다. 1 == "1"
+		//값도 같으면서 type도 같은지 확인해주는 것은 "===" 이다.
+		//var pass 	  = document.getElementById("pass");
+		//var passCheck = document.getElementById("passCheck");
+		
+		//form태그인 경우 이런식으로 사용 가능. input태그에 있는 id를 통해서 값을 가져오는게 아니라 name을 통해서 가지고 온다.
+		var form = document.inputForm;
+		var pass = form.pass;
+		var passCheck = document.inputForm.passCheck;
+		
+		
+		if(pass.value == passCheck.value){
+			return true;
+		}else{
+			alert("패스워드가 서로 다릅니다.");
+		}
+		return false;					
+	}
+</script>
+</head>
+<body>
+
+<!-- onsubmit은 return과 함께 써준다. -->
+<form action="http://www.naver.com" 
+	  onsubmit="return whenSubmit()"
+	  name = "inputForm"><!-- 유일하게 form태그일때만 name을 통해서 데이터에 접근가능.  -->
+	아이디 : <input type="text" size="20" name="id"/><br> <!-- id="id" -->
+	패스워드 : <input type="password" size="20" name="pass" /><br><!-- id="pass" --> 
+	패스워드 확인 : <input type="password" size="20" name="passCheck" /><br><!-- id="passCheck" -->
+	<input type="submit" value="전송"/>	
+</form>
+
+</body>
+</html>

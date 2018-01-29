@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script>
+	$(document).ready(function(){
+	//	keydown : 누를때마다	
+		$('input').keydown(function(){
+			$(this).css('color', 'orange');
+		});
+	
+		$('input').keyup(function(){
+			$(this).css('color', 'black');
+		});
+		
+		$('input').focus(function(){
+			$(this).css('background', 'lightgray');
+			$(this).css('border', '2px dotted red');
+		});
+		
+		$('input').blur(function(){
+			$(this).css('background', 'white');
+			$(this).css('border', '1px solid lightgray');
+			
+		});
+	});
+</script>
+</head>
+<body>
+	<form action="">
+	이름 : <input type="text" size="20" /><br>
+	<!-- type="tel" pattern 확인ㄴ -->
+	전화번호 : <input type="tel" size="20" pattern="(010|011|017)-\d{3,4}-\d{4}"><br>
+	<input type="submit">
+	</form>
+</body>
+</html>

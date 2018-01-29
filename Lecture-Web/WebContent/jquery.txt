@@ -1,0 +1,4 @@
+
+jquery.com ´Ù¿î
+
+Download the compressed, production jQuery 3.3.1 slim build

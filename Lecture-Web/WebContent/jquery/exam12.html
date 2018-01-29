@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+/* 1번째 스타일 방식 - 제일 많이 사용*/
+	 div {
+		width:100px;
+		height:100px;
+		background:red;
+		/* opacity:0.7; - 흐릿하게 보여준다.*/
+	}
+</style>
+<title>Insert title here</title>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script>
+//2번째 jQuery에 자바스크립트 객체 방식
+	$(document).ready(function(){
+		/* $('div').css({
+			'width' : '100px',
+			'height' : '100px',
+			'background' : 'red'
+		}); */
+		
+	//	$('div').hide(1000);//사려졌다
+	//	$('div').show(1000);//나타났다
+	//	$('div').toggle(1000);//한번 쓰면 다시한번 사라지게 한다.
+	//	$('div').toggle(1000);//두번 쓰면 사라졌다가 다시한번 나타난다.
+		
+	
+	//	투명 
+		/* $('div').fadeOut(3000);
+		$('div').fadeIn(3000);
+		$('div').fadeToggle(3000);
+		$('div').fadeToggle(3000); */
+		
+	//	흐릿하게 보여준다.
+		$('div').fadeTo('slow', 0.3);
+	});
+</script>
+</head>
+<body>
+<!-- 3번째 태그에 style 속성 넣어주는 방식 -->
+	<!-- <div style="width:100px; height:100px; background:red;"></div> -->
+	<div></div>
+</body>
+</html>

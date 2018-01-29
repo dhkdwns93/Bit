@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="js/jquery-3.3.1.slim.min.js"></script>
+<script>
+	$(document).ready(function(){
+		alert("load...");
+	//	input속성에서 type이 button 것을 숨겨라.
+	//	$('input:button').hide();
+	
+	//	type이 button인 것을 숨겨라 -> 대신 <button>태그도 같이 사라진다. 
+	//	$(':button').hide();
+	
+	//	button태그만 숨겨라
+	//	$('button').hide();
+	
+	//	onclick 속성을 함수로써 정의할 수 있다.
+		$(':button').click(function(){
+		//	alert('click...');
+		//	$('h2').hide();
+		
+		// 자기자신(버튼)을 지우겠다.
+			$(this).hide();
+		});
+	});
+	/*  일반적인 함수를 정의할때는 DOM안에 작성해도 되지만 밖에서도 작성가능하다.
+		function clickBtn(){
+		alert("!!!!");
+	} */
+</script>
+</head>
+<body>
+	<h2>----------------------------------</h2>
+	<input type="button" value="버튼1" /><!-- onclick="clickBtn()" -->
+	<button>버튼2</button>
+	<h2>----------------------------------</h2>
+</body>
+</html>

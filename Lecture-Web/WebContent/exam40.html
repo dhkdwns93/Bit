@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function clickBtn(value){
+		var moniter = document.getElementById("moniter");
+		
+		if(value == "="){
+			monitor.value = eval(moniter.value);		
+		}else if(value == "clear"){
+			monitor.value = "";
+		}else{
+			moniter.value += value;
+		}
+			
+	}
+</script>
+</head>
+<body>
+	<!-- readonly = "readonly" 수정 불가능하게 해주는 메서드 -->
+	<input type="text" id="moniter" /><br>
+	<input type="button" value="1" onclick="clickBtn(this.value)"/>
+	<input type="button" value="2" onclick="clickBtn(this.value)"/>
+	<input type="button" value="3" onclick="clickBtn(this.value)"/>
+	<input type="button" value="4" onclick="clickBtn(this.value)"/>
+	<input type="button" value="+" onclick="clickBtn(this.value)"/>
+	<input type="button" value="-" onclick="clickBtn(this.value)"/>
+	<input type="button" value="=" onclick="clickBtn(this.value)"/>
+	<input type="button" value="clear" onclick="clickBtn(this.value)"/>
+	
+<!-- DOM구조를 사용하기 위한 lib => jQeury -->	
+</body>
+</html>
+
