@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<title>Insert title here</title>
+<script>
+	$(document).ready(function(){
+		$('#btn01').click(function(){
+		//javacript 형식
+			var hTag = document.createElement('h1');
+			var txt = document.createTextNode('세번째 문장');
+			hTag.appendChild(txt);
+			
+			var divTag = document.querySelector('div');
+			
+			//divTag.append(hTag); - 이것두 가능
+			divTag.appendChild(hTag); 
+			divTag.prepend(hTag);
+		
+		//jQuery 형식	
+		//	$('div').append('<h1>세번째 문장</h1>');
+			
+		});
+		$('#btn02').click(function(){
+			//$('ul').append("<li>초록</li>");
+			//$('ol').append("<li>초록</li>");
+			$('ol').prepend("<li>초록</li>");//위로 추가 된다.
+		});
+		
+		$('#btn03').click(function(){
+		//	$('body').append("<h2>추가된 문장입니다.</h2>");
+		//	$('body').prepend("<h2>추가된 문장입니다.</h2>");
+		//	$('body').prepend("<h3>또 추가된 문장입니다.</h3>");
+		//	$('body').prepend("<h4>마지막 추가된 문장입니다.</h4>");
+			
+		// 위에 방식과의 차이점은 문장이 찍히는 순서가 다르다.
+			$('body').prepend("<h2>추가된 문장입니다.</h2>" , 
+							  "<h3>또 추가된 문장입니다.</h3>", 
+							  "<h4>마지막 추가된 문장입니다.</h4>");
+		});
+	});
+</script>
+</head>
+<body>
+	<div>
+		<h1>첫번째 문장</h1>
+		<h1>두번째 문장</h1>
+		<!-- <h1>세번째 문장</h1> -->
+	</div>
+	
+	<ol>
+		<li>빨강</li>
+		<li>노랑</li>
+		<li>파랑</li>
+	</ol>
+	<br>
+	<button id="btn01">문장추가</button>
+	<button id="btn02">색상추가</button>
+	<button id="btn03">본문추가</button>
+</body>
+</html>

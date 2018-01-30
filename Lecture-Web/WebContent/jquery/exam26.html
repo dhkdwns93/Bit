@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+ img{
+ 	height:200px;
+ }
+ 
+</style>
+<title>Insert title here</title>
+<script src="js/jquery-3.3.1.slim.min.js"></script>
+<script>
+	$(document).ready(function(){
+		$('#nextBtn').click(function(){
+			$('#gallery > img').last().prependTo('#gallery');
+		});		
+		$('#pervBtn').click(function(){
+			$('#gallery > img').first().appendTo('#gallery');
+		});
+		//정해진 시간이 지나면 움직이는..
+		setInterval(function(){
+			$('#gallery > img').last().prependTo('#gallery');
+		}, 3000);
+	});
+</script>
+</head>
+<body>
+<button id="pervBtn">PREV</button>
+<span id="gallery">
+<img src="image/1.jpg">
+<img src="image/2.jpg">
+<img src="image/3.jpg">
+<img src="image/4.jpg">
+</span>
+<button id="nextBtn">NEXT</button>
+</body>
+</html>

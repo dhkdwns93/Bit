@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script>
+	$(document).ready(function(){
+		//클리스 명을 붙여준다.
+		$('body *').addClass('red');
+		$('body > *').addClass('blue');
+		
+		$('.red').css('color', 'red');
+		
+		$('p').removeClass('blue');
+		
+		$('.blue').css('color', 'blue');
+		
+		$('.c3').css('background', 'yellow');
+	});
+</script>
+</head>
+<body>
+	<h1 class="c1 c2 c3">나는 문장입니다.</h1>
+	<h1>나는 문장2입니다.</h1>
+	<p>나는 단락입니다.</p>
+	<div>
+		나는 구역입니다.
+	</div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src = "https://code.jquery.com/jquery-3.3.1.js"></script>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<style>
+	#menu{
+		height:50px;
+		background:gray;
+	}
+	#submenu{
+		height:100px;
+		background:lime;
+		padding:10px;
+		margin-left:10px;
+		margin-right:10px;
+		display:none;
+	}
+</style>
+<script>
+	$(document).ready(function(){
+		$('#menu').mouseenter(function(){
+			//$('#submenu').show(1000);
+			// fadeIn : 흐릿하게
+			//$('#submenu').fadeIn(1000);
+			$('#submenu').slideDown(1000);
+			$('#submenu').slideUp(1000);
+			
+			$('#submenu').slideToggle(1000);
+	
+		});
+		
+	});
+</script>
+</head>
+<body>
+	<div id="menu">마우스를 접근시켜보세요</div>
+	<div id="submenu">메뉴화면입니다.</div>
+	
+</body>
+</html>

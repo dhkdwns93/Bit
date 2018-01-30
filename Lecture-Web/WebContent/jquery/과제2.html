@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	div{
+		
+		border:1px solid white;
+		
+	}
+	#firstDiv{
+	background-color:#FFFFFF;
+	width:400px;
+	
+	}
+	#text{
+	border: 1px solid gray;
+    overflow: auto;
+    padding: 2px;
+    resize: both;
+	}
+</style>
+<script src="js/jquery-3.3.1.slim.min.js"></script>
+<script>
+	//document.execCommand("명령이름", false, "값")
+	
+	
+	/* $('select').change(function(){
+		document.execCommand($(this).attr('id'), false, $(this).value());
+	}); */
+	/* $('button').change(function(){
+		document.execCommand($(this).attr('id'), false,true);
+	}); */
+	
+	document.execCommand('styleWithCSS', false, $(this).value);
+	//insertBrOnReturn : 엔터키를 눌렀을 때 br태그를 넣을지 현재의 블록 요소를 두 개로 나눌지 제어함
+	document.execCommand('insertBrOnReturn', false, true);
+	
+	$(document).ready(function(){
+		/* $('button').click(function(){
+			document.execCommand($(this).attr('id'), false, true);
+		});
+		 */
+		 $('#selectAll').click(function(){
+				document.execCommand('selectAll', false, true);
+			});
+		 
+		$('#bold').click(function(){
+			document.execCommand('bold', false, true);
+		});
+		$('#underLine').click(function(){
+			document.execCommand('underLine', false, true);
+		});
+		
+		 $('#italic').click(function(){
+			document.execCommand('italic', false, true); 	
+		 });
+		 
+		 $('#justifyRight').click(function(){
+			document.execCommand('justifyRight', false, true); 
+		 });
+		 $('#justifyCenter').click(function(){
+			document.execCommand('justifyCenter', false, true); 
+		 });
+		 $('#justifyLeft').click(function(){
+			document.execCommand('justifyLeft', false, true); 
+		 });
+		 $('#removeFormat').click(function(){
+			document.execCommand('removeFormat', false, true); 
+		 });
+		 $('#fontSize').click(function(){
+			 console.log($(this)[0].selectedIndex);
+			document.execCommand('fontSize', false, $(this)[0].selectedIndex); 
+		 });
+		 $('#foreColor').click(function(){
+			 console.log($(this)[0].selectedIndex);
+			document.execCommand('foreColor', false, $(this)[0].selectedIndex); 
+		 });
+		 $('#hiliteColor').click(function(){
+			document.execCommand('hiliteColor', false, $(this).value); 
+		 });
+		 $('#fontName').click(function(){
+			 
+			document.execCommand('fontName', false, $(this).val()); 
+		 });
+		
+	});
+</script>
+</head>
+<body>
+	
+		<div id="firstDiv" style="text-align:center;">
+			<button id="selectAll">전체 선택</button>
+			<button id="removeFormat">모든 형식 제거</button>
+			<button id="bold">굵게</button>
+			<button id="italic">기울임</button>
+			<button id="underLine">밑줄</button>
+			<br>
+			<button id="justifyLeft">왼쪽정렬</button>
+			<button id="justifyCenter">가운데정렬</button>
+			<button id="justifyRight">오른쪽정렬</button>
+			<br>
+			
+			글꼴 : <select id="fontName" style="width:100px">
+				<option value="">글꼴 선택</option>
+				<option value="돋움">돋움</option>
+				<option value="굴림">굴림</option>
+				<option value="궁서">궁서</option>
+				<option value="바탕">바탕</option>
+			</select>
+			<!-- s.[s.selectedIndex].value -->
+			글자크기 : <select id="fontSize" style="width:100px">
+				<option value="">글자크기</option>
+				<option value="1">4px</option>
+				<option value="2">8px</option>
+				<option value="3">10px</option>
+				<option value="4">12px</option>
+				<option value="5">16px</option>
+				<option value="6">20px</option>
+				<option value="7">36px</option>
+			</select>
+			<br>
+			글자 색상 : <select id="foreColor" style="width:100px">
+				<option value="">글자 색상</option>
+				<option value="#FF0000">빨강</option>
+				<option value="#FF8000">주황</option>
+				<option value="#FFFF00">노랑</option>
+				<option value="#01DF01">초록</option>
+				<option value="#0000FF">파랑</option>
+				<option value="#08088A">남색</option>
+				<option value="#BF00FF">보라</option>
+				<option value="#000000">검정</option>
+				<option value="#FFFFFF">하얀색</option>
+			</select>
+			
+			글자 배경색  : <select id="hiliteColor" style="width:100px">
+				<option value="">글자 배경색</option>
+				<option value="#FF0000">빨강</option>
+				<option value="#FF8000">주황</option>
+				<option value="#FFFF00">노랑</option>
+				<option value="#01DF01">초록</option>
+				<option value="#0000FF">파랑</option>
+				<option value="#08088A">남색</option>
+				<option value="#BF00FF">보라</option>
+				<option value="#000000">검정</option>
+				<option value="#FFFFFF">하얀색</option>
+			</select>
+		
+		</div>
+		<div id="text" contenteditable="true" style="width:400px; height:400px;">텍스트 편집기</div>
+	
+</body>
+</html>

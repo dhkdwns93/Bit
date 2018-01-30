@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+ img{
+ 	height:300px;
+ }
+</style>
+<script src="js/jquery-3.3.1.slim.min.js"></script>
+<script>
+	$(document).ready(function(){
+		$(":button").click(function(){
+		//appendTo() : 어딘가로 이동시키겠다.
+		//img 태그중 첫번째를 body태그 뒤쪽으로 이동시켜준다.
+		//	$('img').first().appendTo('body');
+		
+		//prependTo() : 어딘가로 이동 
+		//img 태그 중 마지막 번째를 body태그 앞으로 이동시켜준다.
+		$('img').last().prependTo('body');
+		});		
+	});
+</script>
+</head>
+<body>
+<img src="image/1.jpg">
+<img src="image/2.jpg">
+<img src="image/3.jpg">
+<img src="image/4.jpg">
+<br><br>
+<button >클릭</button>
+</body>
+</html>

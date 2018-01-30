@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script>
+	$(document).ready(function(){
+		$('#btn01').click(function(){
+		//	자바스크립트 형식
+		//	document.getElementById('p01').innerText = "문장이 변환되었습니다.";
+			
+		// jQuery 형식
+			$('#btn01').click(function(){
+				$('#p01').text("<mark>문장이 변환되었습니다2</mark>");
+			});
+		
+			$('#btn02').click(function(){
+				/* document.getElementById('p02').innerHTML
+				= "<mark>문장이 변환 되었습니다.3</mark>"; */
+				
+				$('#p02').html("<mark>문장이 변환되었습니다3</mark>");
+			});
+			
+			
+		
+		});
+		$('#btn03').click(function(){
+			var aTag = document.querySelector('#site').setAttribute("href", "http://www.duam.net");
+			
+			//$('#site').attr('href', "http://www.duam.net");
+				
+		});
+		
+		$('#btn04').click(function(){
+			/*
+			var pTag = document.getElementsByTagName('p');
+			for(var i in pTag){
+			pTag[i].innerHTML = i+" : "+pTag[i].innerText;
+			}
+			*/
+			
+			//html과 text는 수정할때는 모두 수정함. 
+			//$('p').text('문장변환');	
+			
+		
+			/* $('p').text(function(index, innerText){	
+				alert(index+":"+innerText);
+			}); */
+			//수정시 : function함수에 대해서 return 하여서 수정하게 된다.
+			/* $('p').text(function(index){
+				return index+": 문장변환";
+			});	 */
+			$('p').html(function(index){
+				return index+": <strong>문장변환</strong>";
+			});	
+			
+		});
+	});
+</script>
+</head>
+<body>
+	<p id="p01">첫번째 문장입니다</p>
+	<p id="p02">두번째 문장입니다</p>
+	<a  id="site" href="http://wwww.naver.com" target="_blank">사이트 이동</a><br>
+	<hr>
+	<button id="btn01">TEXT변환</button><br>
+	<button id="btn02">HTML변환</button><br>
+	<button id="btn03">주소변환</button><br>
+	<button id="btn04">문장 변환</button>
+</body>
+</html>

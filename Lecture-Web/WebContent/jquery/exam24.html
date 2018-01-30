@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+	body *{
+		display:block;
+		border:1px solid red;
+		margin:10px;
+		padding:10px;
+	}
+</style>
+<title>Insert title here</title>
+<script src="js/jquery-3.3.1.slim.min.js"></script>
+<script>
+	$(document).ready(function(){
+		//h2와 같은 레벨인 형제들을 css 변화
+		//$('h2').siblings().css('border-color', 'blue');
+		//$('h2').siblings('p').css('border-color', 'blue');
+		//$('h2').siblings('h3').css('border-color', 'blue');
+		
+		//h2의 다음 것 
+		//$('h2').next().css('border-color', 'blue');
+		//h2의 다음인 모든 것
+		//$('h2').nextAll().css('border-color', 'blue');
+		//h2의 앞에 것
+		//$('h2').prev().css('border-color', 'blue');
+		//h2의 앞에 것 모두
+		//$('h2').prevAll().css('border-color', 'blue');
+		//span에서 h3사이인 것들
+		//$('span').nextUntil('h3').css('border-color', 'blue');
+		
+		//div가 여러개(배열) 일 때 .eq(index)로 찾고자하는것을 찾을수 있다.
+		//$('div').eq(0).css('border-color', 'blue');
+		//$('div').find('*')
+		//$('div').children()
+		//$('div > *').eq(3).css('border-color', 'blue');
+		
+		//not('p'): p태그가 아닌것들만 css 변화
+		//$('div > *').not('p').css('border-color', 'blue');
+		//$('p').siblings().css('border-color', 'blue');
+		
+		//filter : 해당되는 태그만 뽑아서 css 변화
+		$('div > *').filter('p').css('border-color', 'blue');
+		
+		
+	});
+</script>
+</head>
+<body>
+	<div>div1
+		<p>p-1</p>
+		<span>span</span>
+		<h1>h1</h1>
+		<h2>h2</h2>
+		<h3>h3</h3>
+		<p>p-2</p>
+	</div>
+	<div>div2
+		<h2>h2</h2>
+		<h3>h3</h3>
+		<p>p2-1</p>
+	</div>
+</body>
+</html>

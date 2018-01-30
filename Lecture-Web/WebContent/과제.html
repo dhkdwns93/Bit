@@ -11,17 +11,17 @@ button {
 </style>
 <script>
 	function numBtn(val) {
-		var result = document.getElementById('result');
-
-		if (val.value == "=") {
-			/* console.log(eval('result.innerHTML'));
-			result.innerHTML
-			eval('result.innerHTML');
-			 */
-		} else if (val.value == "Clear") {
-			result.innerHTML = "";
-		} else {
-			result.innerHTML = result.innerHTML + val.value;
+		console.log(val);
+		var result = document.getElementById('result').innerHTML;
+		switch (val) {
+		case 1,2,3,4,5,6,7,8,9:
+			
+			break;
+		
+		case *,%,/,-,+:
+		
+		default:
+			break;
 		}
 
 	}
@@ -31,7 +31,10 @@ button {
 	<table border="1">
 
 		<tr id="inpuText">
-			<td colspan="4" id="result" style="height: 40px; width: 99%;"></td>
+			<td colspan="4" id="result" style="height: 40px; width: 99%;">
+				<input type="text" name="num" id="re_num">
+				<input type="hidden" name="text" id="re_txt">
+			</td>
 		</tr>
 		<tr class="number">
 			<td><button value="7" onclick="numBtn(this)">7</button></td>

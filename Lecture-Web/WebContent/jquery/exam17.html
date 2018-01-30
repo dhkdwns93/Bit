@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script>
+	$(document).ready(function(){
+		/*
+		//var pTag = document.getElementsByTagName("p");
+		var pTag = document.querySelectorAll('p');
+		
+		var html = pTag[0].innerHTML;
+		var txt = pTag[0].innerText;
+		*/
+	//	.html과 .text의 차이점 
+	//		- html은 여러개가 있으면 맨 처음것만 출력해준다.
+	//		- text는 모두 출력해준다.
+	//	.html : 태그를 jquery형식으로 뽑아오는 방법
+	//  .text : 태그를 jquery형식으로 뽑아오는 방법
+	
+	/*
+		$('p')[0].innerHTML : 자바스크립트 형식 - inner형식은 이런식으로 사용가능
+		$('p').html/text : jquery 형식 
+	*/
+		//var html = $('p').html();
+		//var txt = $('p').text();
+		//var html2 = $('p')[0].innerHTML;
+		
+		
+		
+		//alert("추출된 HTML : "+ html +'\n'+ '추출된 TEXT : '+txt+'\n');
+		
+		
+		/* var aTag = document.querySelector('a');
+		var attr = aTag.getAttribute('href'); */
+		
+		//var attr = $('a').attr('href');
+		
+		//alert('추출된 주소 : '+ attr + '\n');
+		
+		
+		$('button').click(function(){
+			
+			//var name = tag.value;
+			var name = $('#name').val();
+			alert("추출된 이름 : "+ name + '\n');
+		});
+		
+	});
+	/* function clickBtn(){
+		var tag = document.getElementById('name');
+		var name = tag.value;
+		
+		alert('추출된 이름 : '+ name +'\n');
+	} */
+</script>
+</head>
+<body>
+	<p>내 이름은 <b>홍길동</b>이고, 별명은 <i>의적</i>입니다.</p>
+	<p>내 이름은 <b>홍길순</b>이고, 별명은 <i>의적2</i>입니다.</p>
+	<a href="http://www.naver.com">네이버</a><br>
+	이름 : <input type="text" size="20" id="name" />
+	<button onclick="clickBtn()">입력완료</button>
+</body>
+</html>

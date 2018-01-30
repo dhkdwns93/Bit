@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+ <style>
+
+ </style>
+<title>bxSlider 예제</title>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+
+<script>
+    $(document).ready(function(){
+      //$('.slider').bxSlider({  });
+    $('.slider').bxSlider({
+    	  mode: 'fade',
+    	  captions: true,
+    	  slideWidth: 600,
+    	  autoStart : true
+      });
+    });
+  </script>
+
+
+
+</head>
+<body>
+	<div class="slider">
+		<div><img src="image/1.jpg" title="movie1"></div>
+		<div><img src="image/2.jpg" title="movie2"></div>
+		<div><img src="image/3.jpg" title="movie3"></div>
+		<div><img src="image/4.jpg" title="movie4"></div>
+	</div>
+</body>
+</html>

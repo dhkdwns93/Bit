@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script>
+	$(document).ready(function() {
+		$(':button').click(function(){
+			//$('p').remove();
+			
+			//div는 자기자신의 내부만 삭제
+			//remove는 자기자신까지 포함해서 삭제
+			
+			//$('div').remove();
+			//$('div').empty();
+			
+			//$('#id01').remove();
+			//$('#id01').empty();
+			
+			
+			//	$('p.c01').remove();
+			// p태그중에 클래스명이 c01인 애들만 삭제
+			//	$('p').remove('.c01');
+			
+		//	$('p.c01').remove();
+		//	$('p$id02').remove();
+		
+		// 여러개를 삭제하고 싶을 때 이런 형식으로 사용
+		//	$('p').remove('.c01, #id02');
+			
+			
+		});
+	});
+</script>
+<style>
+div{
+	border : 2px solid red;
+}
+</style>
+</head>
+<body>
+	<div>
+		<p id="id01">나는 홍길동입니다.</p>
+		<mark class="c01">나는 고길동입니다.</mark>
+		나는 김길동입니다.<br>
+		<p class="c01">나는 한기동입니다</p>
+		<p id="id02">나는 박길동입니다.</p>
+		<button>삭제</button>
+	</div>
+</body>
+</html>
