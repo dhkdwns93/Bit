@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script>
+	var httpRequest = null;
+	function getHttpRequest() {
+		if (window.ActiveXObject) {
+			return new ActiveXObject("Microsoft.XMLHTTP");
+		} else if (window.XMLHttpRequest) {
+			return new XMLHttpRequest();
+		} else {
+			return null;
+		}
+	}
+
+	function sendProcess(param) {
+		
+		var msg = "=========================";
+		
+		//msg += "param.jsp?name="+param + '\n';
+		msg += "/Lecture-Web/param?name="+param + '\n';
+		debugTrace(msg);
+		
+		httpRequest = getHttpRequest();
+		
+		httpRequest.onreadystatechange = callbackFunction;
+		
+		//encoding
+		param = encodeURIComponent(param);
+		
+		//var url = "param.jsp?name="+param;
+		var url = "/Lecture-Web/param?name="+param + '\n';
+		
+		httpRequest.open("GET", url , true);
+		httpRequest.send(null);
+	}
+	
+	function callbackFunction(){
+		//var debug = document.getElementById("debug");
+		var msg = "";
+			switch (httpRequest.readyState) {
+			case 1:
+				//debug.value+="Loading....\n";
+				msg+="Loading....\n";
+				break;
+			case 2:
+				//debug.value+="Loaded....\n";
+				msg+="Loaded....\n";
+				break;
+			case 3:
+				//debug.value+="Interactive....\n";
+				msg+="Interactive....\n";
+				break;
+			case 4:
+				//debug.value+="Complete....\n";
+				msg+="Complete....\n";
+				//서버응답 상태 코드 체크
+				if(httpRequest.status == 200){
+					//debug.value += "웹서버에서 정상적으로 수행...\n";
+					//debug.value += "실행 결과 : "+httpRequest.responseText+"\n";
+					msg += "웹서버에서 정상적으로 수행...\n";
+					msg += "실행 결과 : "+httpRequest.responseText+"\n";
+				}else{
+					//debug.value += "웹서버에서 오류 발생...\n";
+					//debug.value += '오류 코드 : '+httpRequest.status +'\n';
+					//debug.value += '오류 내용 : '+httpRequest.statusText + '\n';
+					msg += "웹서버에서 오류 발생...\n";
+					msg += '오류 코드 : '+httpRequest.status +'\n';
+					msg += '오류 내용 : '+httpRequest.statusText + '\n';
+				}
+				break;
+			}
+			debugTrace(msg);
+	}
+	function debugTrace(msg){
+		var debug = document.getElementById("debug");
+		debug.value += msg;
+	}
+</script>
+
+</head>
+<body>
+	<textarea rows="10" cols="80" id="debug"></textarea>
+	<input type="button" value="영문인자호출" onclick="sendProcess('honggildong')" />
+	<input type="button" value="한글인자호출" onclick="sendProcess('홍길동')" />
+</body>
+</html>

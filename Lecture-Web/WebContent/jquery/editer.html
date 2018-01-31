@@ -4,17 +4,18 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
+	
 	div{
-		
 		border:1px solid white;
-		
+		margin:auto;
 	}
 	#firstDiv{
-	background-color:#FFFFFF;
+	border:1px solid white;
+	background-color:#E6E6E6;
 	width:400px;
-	
 	}
 	#text{
+	margin:auto;
 	border: 1px solid gray;
     overflow: auto;
     padding: 2px;
@@ -23,26 +24,16 @@
 </style>
 <script src="js/jquery-3.3.1.slim.min.js"></script>
 <script>
-	//document.execCommand("명령이름", false, "값")
-	
-	
-	/* $('select').change(function(){
-		document.execCommand($(this).attr('id'), false, $(this).value());
-	}); */
-	/* $('button').change(function(){
-		document.execCommand($(this).attr('id'), false,true);
-	}); */
 	
 	document.execCommand('styleWithCSS', false, $(this).value);
 	//insertBrOnReturn : 엔터키를 눌렀을 때 br태그를 넣을지 현재의 블록 요소를 두 개로 나눌지 제어함
 	document.execCommand('insertBrOnReturn', false, true);
 	
 	$(document).ready(function(){
-		/* $('button').click(function(){
-			document.execCommand($(this).attr('id'), false, true);
-		});
-		 */
+		
+		
 		 $('#selectAll').click(function(){
+			 	$('#text').focus();
 				document.execCommand('selectAll', false, true);
 			});
 		 
@@ -69,19 +60,23 @@
 		 $('#removeFormat').click(function(){
 			document.execCommand('removeFormat', false, true); 
 		 });
+		 
 		 $('#fontSize').click(function(){
-			 console.log($(this)[0].selectedIndex);
+			 
 			document.execCommand('fontSize', false, $(this)[0].selectedIndex); 
-		 });
+		 });<!-- $('#foreColor')[0].$(this).value -->
+		 
 		 $('#foreColor').click(function(){
-			 console.log($(this)[0].selectedIndex);
-			document.execCommand('foreColor', false, $(this)[0].selectedIndex); 
+			var foreId = document.getElementById('foreColor');
+			//console.log(foreId.options[foreId.selectedIndex].value);
+			document.execCommand('foreColor', false, foreId.options[foreId.selectedIndex].value); 
 		 });
 		 $('#hiliteColor').click(function(){
-			document.execCommand('hiliteColor', false, $(this).value); 
+			 var hiliteId = document.getElementById("hiliteColor");
+			 //console.log(hiliteId.options[hiliteId.selectedIndex].value);
+			document.execCommand('hiliteColor', false, hiliteId.options[hiliteId.selectedIndex].value); 
 		 });
 		 $('#fontName').click(function(){
-			 
 			document.execCommand('fontName', false, $(this).val()); 
 		 });
 		
@@ -89,9 +84,11 @@
 </script>
 </head>
 <body>
-	
+		<h2 style="text-align:center;">
+		<img src="plus.jpg" style="width:50px; height:50px;">
+		문서 편집기</h2>
 		<div id="firstDiv" style="text-align:center;">
-			<button id="selectAll">전체 선택</button>
+			<button id="selectAll" >전체 선택</button>
 			<button id="removeFormat">모든 형식 제거</button>
 			<button id="bold">굵게</button>
 			<button id="italic">기울임</button>
@@ -109,7 +106,7 @@
 				<option value="궁서">궁서</option>
 				<option value="바탕">바탕</option>
 			</select>
-			<!-- s.[s.selectedIndex].value -->
+			
 			글자크기 : <select id="fontSize" style="width:100px">
 				<option value="">글자크기</option>
 				<option value="1">4px</option>
