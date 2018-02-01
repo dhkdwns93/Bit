@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 태그 항목마다  -->
+<members>
+	<member>
+		<id>hong</id>
+		<name>홍길동</name>
+	</member>
+	<member>
+		<id>choi</id>
+		<name>최길동</name>
+	</member>
+	<member>
+		<id>park</id>
+		<name>박길동</name>
+	</member>
+</members>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script>
+	$(document).ready(function(){
+		$(':button').click(function(){
+			var name = $('#name').val();
+			var age = $('#age').val();
+			console.log(name);
+			console.log(age);
+			
+			//비동기 방식으로 name=홍길동&age=25 파라미터를 param3.jsp 요청
+			$.ajax({//ajax는 보내질때 ?가 붙지 않는다.
+				url		: "param3.jsp",
+				type	: "post",
+				//data 	: 'name=홍길동&age=25',
+				//data	: {name:'홍길동', age:25},
+				
+				data :	{'name':name, 'age':age}, 
+				success : callback
+			});
+		});
+	});
+	function callback(data){
+		$('#debug').val(data);
+		
+		//$('#debug').append(data);
+		
+		
+	}
+</script>
+</head>
+<body>
+	<textarea rows="10" cols="80" id="debug"></textarea><br>
+	이름 : <input type="text" id="name" /><br>
+	나이 : <input type="text" id="age" /><br>
+	<input type="button" value="전송" />
+</body>
+</html>
